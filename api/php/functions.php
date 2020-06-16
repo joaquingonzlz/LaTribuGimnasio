@@ -1,9 +1,10 @@
 <?php
 $timezone = new DateTimeZone("America/Argentina/Buenos_Aires");
-
+setlocale(LC_ALL, 'es_AR', 'esp_ARG');
 function connectDB() : PDO {
 	try {
-		$db = new PDO("mysql:host=localhost; dbname=latribu", 'angelo', 'SUfU4995...');
+		$prefix = 'u464982645_';
+		$db = new PDO("mysql:host=localhost; dbname=${prefix}latribu", $prefix.'angelo', 'SUfU4995...');
 		$db->exec("SET lc_time_names = es_AR");
 	} catch (PDOException $e) {
 		echo 'Error: '.$e->getMessage();
