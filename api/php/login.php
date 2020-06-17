@@ -1,4 +1,5 @@
-<?php header("Content-type: application/json");
+<?php session_start();
+header("Content-type: application/json; charset=UTF-8");
 error_reporting(0);
 require_once("functions.php");
 if(!empty($_POST) && isset($_POST['user']) && isset($_POST['password'])){
@@ -6,10 +7,10 @@ if(!empty($_POST) && isset($_POST['user']) && isset($_POST['password'])){
 	$pass = hash("SHA512", $_POST['password']);
 
 	$db = connectDB();
-	$ps = $db->prepare("SELECT 1 FROM usuario WHERE dni = :d AND password = :p");
+	$ps = $db->prepare("SELECT 1 FROM usuario WHERE dni = :d AND pass = :p");
 	if( !$ps->execute([':d' => $user, ':p' => $pass]) ){
 		//Si ocurrió un error en la consulta (Por problemas en la base de datos, no por los datos en sí)
-		echo json_encode(['error' => 'Ocurrió un problema en la base de datos']);
+		echo json_encode(['error' => 'Ocurrió un problema en la base de datos', 'sqlstate' => $ps->errorInfo()]);
 		exit;
 	}
 	$row = $ps->fetch();

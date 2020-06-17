@@ -6,6 +6,7 @@ CREATE TABLE usuario(
 	apellido VARCHAR(20) NOT NULL,
 	telefono INT(7) UNSIGNED NOT NULL,
 	es_profe BOOLEAN NOT NULL DEFAULT 0,
+	urlImg VARCHAR(50) NULL,
 	PRIMARY KEY (dni) USING HASH,
 	UNIQUE (telefono) USING HASH
 ) ENGINE = InnoDB;
@@ -32,6 +33,7 @@ CREATE TABLE clase (
 	video VARCHAR(15) NOT NULL,
 	fecha DATE NOT NULL,
 	descripcion VARCHAR(255) NULL,
+	duracion INT UNSIGNED NOT NULL;
 	PRIMARY KEY (id),
 	UNIQUE clase (curso, video) USING BTREE
 ) ENGINE = InnoDB;

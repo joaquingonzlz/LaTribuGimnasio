@@ -5,16 +5,18 @@ const getDatos = () => {
 }
 
 const sendLoginInfo = async() => {
+	let fd = new FormData(),
+		input = getDatos();
+	fd.append('user', input.user);
+	fd.append('password', input.password);
 	const req = await fetch('api/php/login.php', {
 		method: 'POST',
-		headers: {
-			"Content-type": "application/json; charset=UTF-8"
-		},
-		body: JSON.stringify(getDatos())
+		body: fd,
+		mode: 'cors'
 	});
 	const res = await req.json();
 	if (res.error) mostrarError(res.error);
-	else location.href = '/';
+	else location.href = '/latribu/';
 }
 
 const mostrarError = (error) => {
@@ -23,11 +25,14 @@ const mostrarError = (error) => {
 	errbx.innerText = error;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-	document.getElementById("login-form").addEventListener("submit", e => {
+document.addEventListener("DOMContentLoaded", (evt) => {
+	let form = document.getElementById("login-form");
+	form.addEventListener("submit", e => {
 		e.preventDefault();
-		// console.log(e.target.elements);
 		if (e.target.reportValidity())
 			sendLoginInfo();
 	})
+	setTimeout(function() {
+		M.updateTextFields();
+	}, 30);
 })
