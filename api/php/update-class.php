@@ -14,11 +14,6 @@ if(esProfesor($_SESSION['user'])){
 			$argUpd[':vid'] = $video;
 			$argUpd[':dur'] = getDuracion($video);
 		}
-		if(isset($_POST['description'])){
-			if(!empty($update)) $update .= ', ';
-			$update .= "descripcion = :des";
-			$argUpd[':des'] = mb_strimwidth(limpiarString($_POST['description']),0, 255);
-		}
 		if(isset($_POST['course'])){
 			if(!empty($update)) $update .= ', ';
 			$update .= "curso = :cur";

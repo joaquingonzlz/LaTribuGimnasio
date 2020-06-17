@@ -13,18 +13,28 @@ if(esProfesor($_SESSION['user'])){
 		$fecha = (new DateTime('now', $timezone))->format("Y-m-d");
 
 		$db = connectDB();
-		$ps = $db->prepare("INSERT INTO clases(curso, video, duracion, descripcion, fecha)
-		VALUES (:cur, :vid, $duracion, :des, $fecha)");
+		$ps = $db->prepare("INSERT INTO clases(curso, video, duracion, fecha)
+		VALUES (:cur, :vid, $duracion, $fecha)");
 		if(!$ps->execute([
 			':cur'=>$curso,
-			':vid'=>$video,
-			':des'=>$descripcion
+			':vid'=>$video
 		])){
 			echo json_encode(['error'=>'Ocurrió un error en la base de datos', 'sqlstate'=>$ps->errorInfo()]);
 		}else{
 			echo json_encode(['error'=>false,'inserted'=>[
 				$ps->fetch()
 			]]);
+			$clase = $db->lastInsertId();
+			$participantes = $db->query("SELECT estudiante FROM participantes WHERE curso = $curso")->fetchAll(PDO::FETCH_NUM);
+			$values = '';
+			foreach($participantes as $p){
+				if(!empty($values)) $values .= ", ";
+				$values .= "($curso, $clase, 0, ".$p[0].")";
+			}
+			//INSERT INTO vistos(curso, clase, visto, estudiante)
+			if(!empty($values)){
+				$db->query("INSERT INTO vistos(curso, clase, visto, estudiante) VALUES $values");
+			}
 		}
 	}else{
 		http_response_code(404);

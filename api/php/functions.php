@@ -29,6 +29,10 @@ function esProfesor(string $user): bool{
 	$res = connectDB()->query("SELECT 1 FROM PROFESOR WHERE dni = $user")->fetchColumn();
 	return !!$res;
 }
+function esParticipante(string $user, int $curso):bool{
+	if(esProfesor($user)) return true;
+	return !!(connectDB()->query("SELECT 1 FROM participantes WHERE estudiante = $user AND curso = $curso")->fetchColumn());
+}
 function generarImagen($archivo): string{
 
 	return '';
@@ -62,5 +66,14 @@ function getYoutubeID(string $url){
 	$aux = explode("=", $aux[count($aux)-1]);
 	// Sea como sea, yo en este punto tengo separado el videoID del resto del url
 	return $aux[count($aux)-1];
+}
+/**Decodifica, limpia y obtiene el id del curso */
+function getCourse(string $course): int{
+	$curso = base64_decode($course);
+	if(!$curso){
+		http_response_code(404);
+		exit;
+	}
+	return intval(limpiarInt($curso));
 }
 ?>
