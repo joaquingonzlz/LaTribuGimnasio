@@ -19,6 +19,7 @@ if(esProfesor($_SESSION['user'])){
 			':cur'=>$curso,
 			':vid'=>$video
 		])){
+			http_response_code(500);
 			echo json_encode(['error'=>'Ocurrió un error en la base de datos', 'sqlstate'=>$ps->errorInfo()]);
 		}else{
 			echo json_encode(['error'=>false,'inserted'=>[

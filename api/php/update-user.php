@@ -2,7 +2,8 @@
 header("Content-type: application/json; charset=utf-8");
 error_reporting(0);
 require_once("functions.php");
-if(!empty($_POST)){
+if(!isset($_SESSION['user'])) http_response_code(403);
+else if(!empty($_POST)){
 	$update = "";
 	$argUpd = [":user" => $_SESSION['user']];
 
@@ -41,6 +42,7 @@ if(!empty($_POST)){
 		$query = "UPDATE usuario SET $update WHERE dni = :user";
 		$ps = $db->prepare($query);
 		if(!$ps->execute([$argUpd])){
+			http_response_code(500);
 			echo json_encode(["error"=>"Ocurrió un error en la base de datos", "sqlstate"=>$ps->errorInfo()]);
 		}else{
 			echo json_encode(["error"=>false, "result"=>$ps->fetch(PDO::FETCH_ASSOC)]);

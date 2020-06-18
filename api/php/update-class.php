@@ -23,6 +23,7 @@ if(esProfesor($_SESSION['user'])){
 			$db = connectDB();
 			$ps = $db->prepare("UPDATE clases SET $update WHERE id = :id");
 			if(!$ps->execute($argUpd)){
+				http_response_code(500);
 				json_encode(["error"=>"Ocurrió un error en la base de datos", "sqlstate"=>$ps->errorInfo()]);
 			}else{
 				json_encode(["error"=>false, "updated"=>$ps->fetch()]);

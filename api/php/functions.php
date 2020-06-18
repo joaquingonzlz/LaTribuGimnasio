@@ -1,14 +1,18 @@
 <?php
 $timezone = new DateTimeZone("America/Argentina/Buenos_Aires");
 setlocale(LC_ALL, 'es_AR', 'esp_ARG');
+$db = NULL;
 function connectDB() : PDO {
-	try {
-		$prefix = $_SERVER['DOCUMENT_ROOT'] != "D:/xampp/htdocs/latribu" ? 'u464982645_' : '';
-		$db = new PDO("mysql:host=localhost; dbname=${prefix}latribu", $prefix.'angelo', 'SUfU4995...');
-		$db->exec("SET lc_time_names = es_AR");
-	} catch (PDOException $e) {
-		echo 'Error: '.$e->getMessage();
-		exit(1);
+	global $db;
+	if($db === NULL){
+		try {
+			$prefix = $_SERVER['DOCUMENT_ROOT'] != "D:/xampp/htdocs/latribu" ? 'u464982645_' : '';
+			$db = new PDO("mysql:host=localhost; dbname=${prefix}latribu", $prefix.'angelo', 'SUfU4995...');
+			$db->exec("SET lc_time_names = es_AR");
+		} catch (PDOException $e) {
+			echo 'Error: '.$e->getMessage();
+			exit(1);
+		}
 	}
 	return $db;
 }
@@ -26,7 +30,7 @@ function limpiarInt(string $input): int{
 	return intval(filter_var(htmlspecialchars(trim($input)), FILTER_SANITIZE_NUMBER_INT));
 }
 function esProfesor(string $user): bool{
-	$res = connectDB()->query("SELECT 1 FROM PROFESOR WHERE dni = $user")->fetchColumn();
+	$res = connectDB()->query("SELECT 1 FROM profesor WHERE dni = $user")->fetchColumn();
 	return !!$res;
 }
 function esParticipante(string $user, int $curso):bool{
