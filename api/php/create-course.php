@@ -11,8 +11,8 @@ else{
 	$anuncio = empty($_POST['anuncio']) ? "Bienvenido al curso $nombre!" : limpiarString($_POST['anuncio']);
 
 	$db = connectDB();
-	$ps = $db->prepare("INSERT INTO curso(nombre, descripcion, anuncio)
-	VALUES (:n, :d, :a)");
+	$ps = $db->prepare("INSERT INTO curso(nombre, descripcion, anuncio, fecha_anuncio)
+	VALUES (:n, :d, :a, ".date_create()->getTimestamp().")");
 	if(!$ps->execute([':n'=>$nombre, ':d'=>$descripcion, ':a'=>$anuncio])){
 		http_response_code(500);
 		echo json_encode(["error"=> "Ocurrió un error en la base de datos", "sqlstate"=>$ps->errorInfo()]);

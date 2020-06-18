@@ -27,6 +27,7 @@ CREATE TABLE curso(
 	nombre VARCHAR(20) NOT NULL,
 	descripcion VARCHAR(500) NULL,
 	anuncio VARCHAR(300) NULL,
+	fecha_anuncio INT(11) NOT NULL;
 	PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 

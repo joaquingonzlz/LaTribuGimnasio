@@ -14,8 +14,9 @@ else{
 	}
 	if(isset($_POST['new'])){
 		if(!empty($update)) $update .= ", ";
-		$update .= "anuncio = :an";
+		$update .= "anuncio = :an, fecha_anuncio = :fa";
 		$argUpd[':an'] = $_POST['new'];
+		$argUpd[':fa'] = date_create()->getTimestamp();
 		$anuncios = "UPDATE participantes SET anuncio = 1 WHERE curso = $curso";
 	}
 	if(isset($_POST['name'])){

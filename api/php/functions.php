@@ -80,4 +80,17 @@ function getCourse(string $course): int{
 	}
 	return intval(limpiarInt($curso));
 }
+/**Obtiene la diferencia en dias, horas, minutos y segundos entre dos fechas */
+function getDiferencia(DateTime $fecha1, DateTime $fecha2):array{
+	$ts1 = $fecha1->getTimestamp();
+	$ts2 = $fecha2->getTimestamp();
+	$segundos = abs($ts2 - $ts1); //Obtengo la diferencia en segundos
+	$dias = intdiv($segundos, 86400); //Dias de diferencia //86400 segundos hay en un dia
+	$segundos %= 86400;
+	$horas = intdiv($segundos, 3600);
+	$segundos %= 3600;
+	$minutos = intdiv($segundos, 60);
+	$segundos %= 60;
+	return [$dias, $horas, $minutos, $segundos];
+}
 ?>
