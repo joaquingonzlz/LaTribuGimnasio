@@ -155,16 +155,17 @@
             </div>
             <div class="row">
                 <div class="col s12" style="overflow: hidden; background: #eee;">
-                    <div class="col s12 l5 card horizontal">
-                        <div class="card-image">
-                            <img src="../../img/logo.jpg">
+                    
+                    <div class="col s12 l5 card horizontal" style="padding: 0;">
+                        <div class="card-image red" style="height: 214.51px; width: 150px;">
+                            <img src="../../img/logo.jpg" height="100%" class="of-cover">
                         </div>
                         <div class="card-stacked">
-                            <div class="card-content" style="padding: 10 !important;">
+                            <div class="card-content" style="padding: 5 !important">
                                 <p class="titulo">Nombre de curso</p>
                                 <p class="contenido">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta neque nam aliquid molestiae in? Quod cumque nisi officiis asperiores beatae eius vero perspiciatis distinctio, ad autem rerum sapiente animi officia?</p>
                                 <div class="red" style="margin-top: 20px">
-                                    <div class="progress">
+                                    <div class="progress" style="margin-bottom: 0;">
                                         <div class="determinate" style="width: 70%"></div>
                                     </div>
                                 </div>
@@ -174,6 +175,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>  
@@ -182,24 +184,29 @@
         <div class="container">
           <div class="row">
             <div class="col l6 s12">
-              <h5 class="white-text">Footer Content</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              <!-- <h5 class="white-text">Contacto</h5>
+              <p class="grey-text text-lighten-4">Comunicate al 2284-426584</p>  -->
             </div>
             <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">Links</h5>
-              <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+              <h5 class="white-text">Tambien encontranos en</h5>
+              <ul class="row">
+                <div class="col s2">
+                    <li><img src="../../img/facebook-brands.svg" width="40px" height="40px"></li>
+                </div>
+                <div class="col s10">
+                    <li>
+                        <a class="grey-text text-lighten-3" target="_blank" href="https://www.facebook.com/La-tribu-331906744299316/">La Tribu</a>
+                    </li>
+                    <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.facebook.com/natatoriolatribu">Natatorio La Tribu</a></li>
+                </div>
               </ul>
             </div>
           </div>
         </div>
         <div class="footer-copyright teal darken-1">
           <div class="container">
-          © 2014 Copyright Text
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          © 2020 Gimnasio La Tribu
+          <a class="grey-text text-lighten-4 right" target="_blank" href="https://goo.gl/maps/vDNF7g2wFNcdBht26">Belgrano 3283, Olavarria 7400</a>
           </div>
         </div>
       </footer>
@@ -209,17 +216,27 @@
       <style>
           .titulo{
               font-weight: 500;
+              line-height: 20px;
           }
 
           .contenido{
               height: 40px;
               overflow: hidden;
           }
+
+          .of-cover{
+              object-fit: cover;
+          }
       </style>
 
       <script src="../../js/materialize.min.js"></script>
       <script>
         //   M.AutoInit();
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.carousel');
+            var instances = M.Carousel.init(elems);
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems);
