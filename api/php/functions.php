@@ -3,7 +3,7 @@ $timezone = new DateTimeZone("America/Argentina/Buenos_Aires");
 setlocale(LC_ALL, 'es_AR', 'esp_ARG');
 function connectDB() : PDO {
 	try {
-		$prefix = $_SERVER['DOCUMENT_ROOT'] != "D:/xampp/htdocs" ? 'u464982645_' : '';
+		$prefix = $_SERVER['DOCUMENT_ROOT'] != "D:/xampp/htdocs/latribu" ? 'u464982645_' : '';
 		$db = new PDO("mysql:host=localhost; dbname=${prefix}latribu", $prefix.'angelo', 'SUfU4995...');
 		$db->exec("SET lc_time_names = es_AR");
 	} catch (PDOException $e) {
@@ -69,7 +69,7 @@ function getYoutubeID(string $url){
 }
 /**Decodifica, limpia y obtiene el id del curso */
 function getCourse(string $course): int{
-	$curso = base64_decode($course);
+	$curso = base64_decode(urldecode($course));
 	if(!$curso){
 		http_response_code(404);
 		exit;
