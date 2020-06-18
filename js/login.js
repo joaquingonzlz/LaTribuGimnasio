@@ -9,14 +9,14 @@ const sendLoginInfo = async() => {
 		input = getDatos();
 	fd.append('user', input.user);
 	fd.append('password', input.password);
-	const req = await fetch('api/php/login.php', {
+	const req = await fetch('/api/php/login.php', {
 		method: 'POST',
 		body: fd,
 		mode: 'cors'
 	});
 	const res = await req.json();
 	if (res.error) mostrarError(res.error);
-	else location.href = '/latribu/';
+	else location.href = '/';
 }
 
 const mostrarError = (error) => {
