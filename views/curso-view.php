@@ -44,6 +44,7 @@ include_once("views/header.php") ?>
 			</div>
 
 		</section>
+		<?php include_once("views/footer-view.php"); ?>
 	</div>
 
 	<div id="sidebar-clases" class="col s12 l3 hide-on-med-and-down" style="padding: 0; height: 100vh; overflow: auto; position: sticky; top:0;">
@@ -186,4 +187,3 @@ include_once("views/header.php") ?>
 	M.AutoInit();
 </script>
 <script src="/js/curso.js"></script>
-<?php include_once("views/footer-view.php"); ?>

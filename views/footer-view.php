@@ -26,23 +26,3 @@
 		</div>
 	</div>
 </footer>
-<style>
-	<style>
-          .titulo{
-              font-weight: 500;
-              line-height: 20px;
-          }
-
-          .contenido{
-              height: 40px;
-              overflow: hidden;
-          }
-
-          .of-cover{
-              object-fit: cover;
-          }
-      </style>
-</style>
-</body>
-
-</html>
