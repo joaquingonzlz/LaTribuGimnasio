@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Administración</title>
+	<link rel="stylesheet" href="../../css/materialize.css">
+	<link rel="stylesheet" href="../../css/gestion-usuario.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+	<!-- HEADER -->
+	<nav class="teal darken-1"></nav>
+
+	<div class="container" style="min-height: calc(100vh - 276.49px);padding: 20px 0;">
+
+		<div class="row">
+			<div class="col s12">
+			<ul class="tabs">
+				<li class="tab col s3 "><a href="#test1">Cursos</a></li>
+				<li class="tab col s3 teal-text text-darken-1"><a class="active" href="#test2">Usuarios</a></li>
+			</ul>
+			</div>
+			<div id="test1" class="col s12">
+				<section>
+					<div class="row" style="padding: 0 !important;">
+						<div class="col s12 l7 tabla">
+							<h5>Listado de cursos</h5>
+							<div class="divider"></div>
+							<div class="cotenedor-fila">
+								
+								<div class="row fila ">
+									<div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+									<div class="col s2 l1 iconos" style="height: 50px;"><a href="#"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+									<div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#modal1"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+								</div>
+								<div class="row fila ">
+									<div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+									<div class="col s2 l1 iconos" style="height: 50px;"><a href="#"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+									<div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#modal1"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+								</div>
+								<div class="row fila ">
+									<div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+									<div class="col s2 l1 iconos" style="height: 50px;"><a href="#"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+									<div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#modal1"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+								</div>
+								<div class="row fila ">
+									<div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+									<div class="col s2 l1 iconos" style="height: 50px;"><a href="#"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+									<div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#modal1"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+								</div>
+								
+							</div>
+		
+							<!-- Modal Structure -->
+							<div id="modal1" class="modal">
+							  <div class="modal-content">
+								<h4>¿Realmente desear eliminar el curso?</h4>
+								<p>Si elimina el cursos, se borrará el curso junto a todas sus clases</p>
+							  </div>
+							  <div class="modal-footer">
+								<a href="#!" class="modal-close waves-effect waves-green btn-flat">Borrar</a>
+							  </div>
+							</div>
+			
+						</div>
+
+		
+						<div class="col s12 l5">
+							<h5>Crear curso</h5>
+							<div class="divider"></div>
+							<form>
+								<div class="row">
+									<div class="input-field col s12 l12">
+										<input id="last_name" type="text" class="validate">
+										<label for="last_name">Nombre del curso</label>
+									</div>
+									<div class="input-field col s12 l12">
+										<textarea id="descripcion" class="materialize-textarea" data-length="120"></textarea>
+										<label for="descripcion">Descripcion</label>
+									</div>
+									<div class="input-field col s12 l12">
+										<textarea id="anuncio" class="materialize-textarea" data-length="120"></textarea>
+										<label for="anuncio">Anuncio</label>
+									</div>
+									<div class="col s12 l12" style="text-align: center;">
+										<button class="btn waves-effect waves-light" type="submit" name="action">Crear</button>
+									</div>   
+								</div>
+							</form> 
+						</div>
+					</div>           
+				</section>
+			</div>
+			<div id="test2" class="col s12">
+				<section>
+					<div class="row" style="padding: 0 !important;">
+						<div class="col s12 l7 tabla">
+							<h5>Listado de usuarios</h5>
+							<div class="divider"></div>
+							<div class="cotenedor-fila" style="max-height: 1000px;overflow: auto;">
+								
+								<div class="row fila ">
+									<div class="col s1 l1"><p class="truncate">P</p></div>
+									<div class="col s3 l2 "><p class="truncate">40092235</p></div>
+									<div class="col s6 l8 "><p class="truncate">Joaquin Gonzalez</p></div>
+									<div class="col s2 l1 iconos" ><a class="modal-trigger" href="#modal2"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+								</div>
+								<div class="row fila ">
+									<div class="col s1 l1"><p class="truncate">A</p></div>
+									<div class="col s3 l2 "><p class="truncate">40092235</p></div>
+									<div class="col s6 l8 "><p class="truncate">Joaquin Gonzalez</p></div>
+									<div class="col s2 l1 iconos" ><a class="modal-trigger" href="#modal2"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+								</div>
+		
+		
+								
+							</div>
+		
+							<!-- Modal Structure -->
+							<div id="modal2" class="modal">
+							  <div class="modal-content">
+								<h4>¿Realmente desear eliminar a usuario?</h4>
+								<p>Si elimina a usuario, perderá toda su información, como su progresos en los cursos</p>
+							  </div>
+							  <div class="modal-footer">
+								<a href="#!" class="modal-close waves-effect waves-green btn-flat">Borrar</a>
+							  </div>
+							</div>
+		
+						</div>
+		
+						<div class="col s12 l5">
+							<h5>Crear usuario</h5>
+							<div class="divider"></div>
+							<form>
+								<div class="row">
+									<div class="col s12 l12" style="margin-top: 20px;">
+										<div class="switch">
+											<label>
+											  Alumno
+											  <input type="checkbox">
+											  <span class="lever"></span>
+											  Profesor
+											</label>
+										  </div>
+									</div>
+									<div class="input-field col s12 l12" style="margin-top: 30px;">
+										<input id="userdoc" type="text" class="validate">
+										<label for="userdoc">Documento</label>
+									</div>
+									<div class="input-field col s12 l12">
+										<input id="username" type="text" class="validate">
+										<label for="username">Nombre</label>
+									</div>
+									<div class="input-field col s12 l12">
+										<input id="userlast_name" type="text" class="validate">
+										<label for="userlast_name">Apellido</label>
+									</div>
+									<div class="col s12 l12">
+										<div class="switch">
+											<label>
+											  Hombre
+											  <input type="checkbox">
+											  <span class="lever"></span>
+											  Mujer
+											</label>
+										  </div>
+									</div> 
+									<div class="input-field col s12" style="margin-top: 30px;">
+										<input id="email" type="email" class="validate">
+										<label for="email">Email</label>
+									  </div>
+									
+									<div class="col s12 l12" style="text-align: center;margin-top: 40px">
+										<button class="btn waves-effect waves-light" type="submit" name="action">Crear</button>
+									</div>
+									  
+								</div>
+							</form> 
+						</div>
+					</div>           
+				</section>
+			</div>
+		</div>
+
+        
+   
+	</div>
+
+
+<!-------------------------------------------------------- FOOTER -->
+
+	<footer class="page-footer  teal lighten-1">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Tambien encontranos en</h5>
+					<ul class="row">
+						<div class="col s2">
+							<li><img src="../..//img/facebook-brands.svg" width="40px" height="40px"></li>
+						</div>
+						<div class="col s10">
+							<li>
+								<a class="grey-text text-lighten-3" target="_blank" href="https://www.facebook.com/La-tribu-331906744299316/">La Tribu</a>
+							</li>
+							<li><a class="grey-text text-lighten-3" target="_blank" href="https://www.facebook.com/natatoriolatribu">Natatorio La Tribu</a></li>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright teal darken-1">
+			<div class="container">
+				© 2020 Gimnasio La Tribu
+				<a class="grey-text text-lighten-4 right" target="_blank" href="https://goo.gl/maps/vDNF7g2wFNcdBht26">Belgrano 3283, Olavarria 7400</a>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+
+
+
+	<script src="../../js/materialize.min.js"></script>
+	<script>
+
+		// var instance = M.Tabs.init(el);
+
+		M.AutoInit();
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     var elems = document.querySelectorAll('select');
+        //     var instances = M.FormSelect.init(elems);
+        // });
+
+		// document.addEventListener('DOMContentLoaded', function() {
+		// 	var elems = document.querySelectorAll('.modal');
+		// 	var instances = M.Modal.init(elems);
+		// });
+
+	</script>
+</body>
+
+</html>

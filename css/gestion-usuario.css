@@ -35,3 +35,7 @@ p.truncate{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+section{
+    margin-top: 40px !important;
+}
