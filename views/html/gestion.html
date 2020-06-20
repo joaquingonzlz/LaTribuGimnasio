@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Home</title>
+	<title>Gestion</title>
 	<link rel="stylesheet" href="../../css/materialize.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -155,50 +155,143 @@
 
     <div class="container" style="min-height: calc(100vh - 276.49px);padding: 20px 0;">
         <section>
-            <h5>Crear curso</h5>
-            <div class="divider"></div>
-            <form>
-                <div class="row">
-                    <div class="input-field col s12 l6">
-                      <input id="last_name" type="text" class="validate">
-                      <label for="last_name">Nombre del curso</label>
-                    </div>
-                    <div class="input-field col s12 l12">
-                        <textarea id="descripcion" class="materialize-textarea" data-length="120"></textarea>
-                        <label for="descripcion">Descripcion</label>
-                    </div>
-                    <div class="input-field col s12 l12">
-                        <textarea id="anuncio" class="materialize-textarea" data-length="120"></textarea>
-                        <label for="anuncio">Anuncio</label>
-                    </div>
-                    <div class="col s12 l12" style="text-align: center;">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Crear
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </div>   
-                </div>
-            </form>
-            <h5>Agregar clase</h5>
-            <div class="divider"></div>
-            <form class="row">
-                <div class="input-field col s6 l6">
-                    <select>
-                      <option value="" disabled selected></option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
-                    </select>
-                    <label>Seleccione el curso</label>
-                </div>
-                <div class="input-field col s12 l6">
-                    <input id="titvideo" type="text" class="validate">
-                    <label for="titvideo">Titulo del video</label>
-                  </div>
-            </form>            
-        </section>
+            <div class="row" style="padding: 0 !important;">
+				<div class="col s12 l7 tabla">
+					<h5>Listado de cursos</h5>
+					<div class="divider"></div>
+					<div class="cotenedor-fila">
+						
+						<div class="row fila ">
+							<div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+							<div class="col s2 l1 iconos" style="height: 40px;"><a href="#"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+							<div class="col s2 l1 iconos" style="height: 40px;"><a class="modal-trigger" href="#modal1"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+						</div>
+						<div class="row fila ">
+							<div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+							<div class="col s2 l1 iconos" style="height: 40px;"><a href="#"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+							<div class="col s2 l1 iconos" style="height: 40px;"><a class="modal-trigger" href="#modal1"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+						</div>
+						<div class="row fila ">
+							<div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+							<div class="col s2 l1 iconos" style="height: 40px;"><a href="#"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+							<div class="col s2 l1 iconos" style="height: 40px;"><a class="modal-trigger" href="#modal1"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+						</div>
+						<div class="row fila ">
+							<div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+							<div class="col s2 l1 iconos" style="height: 40px;"><a href="#"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+							<div class="col s2 l1 iconos" style="height: 40px;"><a class="modal-trigger" href="#modal1"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+						</div>
+						
+					</div>
 
-        
-    </div>
+					<!-- Modal Structure -->
+					<div id="modal1" class="modal">
+					  <div class="modal-content">
+						<h4>¿Realmente desear eliminar el curso?</h4>
+						<p>Si elimina el cursos, se borrará el curso junto a todas sus clases</p>
+					  </div>
+					  <div class="modal-footer">
+						<a href="#!" class="modal-close waves-effect waves-green btn-flat">Borrar</a>
+					  </div>
+					</div>
+
+
+				</div>
+
+				<style>
+					.tabla{
+						margin-bottom: 40px;
+					}
+
+					.row.fila{
+						padding: 0 10px !important;
+						margin: 5px 0 !important;
+					}
+
+					.fila:nth-child(odd){
+						background: #fafafa;
+					}
+
+					.fila > .col{
+						padding: 0 !important;
+						margin-bottom: 0 !important;
+					}
+					.fila > .col p{
+						line-height: 40px !important;
+						padding: 0 !important;
+						margin: 0 !important;
+						overflow: hidden;
+					}
+
+					.fila > .col.iconos{
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+
+					p.truncate{
+						display: block;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				</style>
+
+				<div class="col s12 l5">
+					<h5>Crear curso</h5>
+					<div class="divider"></div>
+					<form>
+						<div class="row">
+							<div class="input-field col s12 l12">
+								<input id="last_name" type="text" class="validate">
+								<label for="last_name">Nombre del curso</label>
+							</div>
+							<div class="input-field col s12 l12">
+								<textarea id="descripcion" class="materialize-textarea" data-length="120"></textarea>
+								<label for="descripcion">Descripcion</label>
+							</div>
+							<div class="input-field col s12 l12">
+								<textarea id="anuncio" class="materialize-textarea" data-length="120"></textarea>
+								<label for="anuncio">Anuncio</label>
+							</div>
+							<div class="col s12 l12" style="text-align: center;">
+								<button class="btn waves-effect waves-light" type="submit" name="action">Crear</button>
+							</div>   
+						</div>
+					</form> 
+				</div>
+			</div>           
+        </section>
+   
+	</div>
+	<footer class="page-footer  teal lighten-1">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Tambien encontranos en</h5>
+					<ul class="row">
+						<div class="col s2">
+							<li><img src="../..//img/facebook-brands.svg" width="40px" height="40px"></li>
+						</div>
+						<div class="col s10">
+							<li>
+								<a class="grey-text text-lighten-3" target="_blank" href="https://www.facebook.com/La-tribu-331906744299316/">La Tribu</a>
+							</li>
+							<li><a class="grey-text text-lighten-3" target="_blank" href="https://www.facebook.com/natatoriolatribu">Natatorio La Tribu</a></li>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright teal darken-1">
+			<div class="container">
+				© 2020 Gimnasio La Tribu
+				<a class="grey-text text-lighten-4 right" target="_blank" href="https://goo.gl/maps/vDNF7g2wFNcdBht26">Belgrano 3283, Olavarria 7400</a>
+			</div>
+		</div>
+	</footer>
 
 
 
@@ -231,6 +324,11 @@
             var elems = document.querySelectorAll('select');
             var instances = M.FormSelect.init(elems);
         });
+
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.modal');
+			var instances = M.Modal.init(elems);
+		});
 	</script>
 </body>
 
