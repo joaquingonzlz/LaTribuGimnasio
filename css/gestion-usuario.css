@@ -1,0 +1,37 @@
+.tabla{
+    margin-bottom: 40px;
+}
+
+.row.fila{
+    padding: 0 10px !important;
+    margin: 5px 0 !important;
+}
+
+.fila:nth-child(odd){
+    background: #fafafa;
+}
+
+.fila > .col{
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    height: 50px !important;
+}
+.fila > .col p{
+    line-height: 40px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+}
+
+.fila > .col.iconos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p.truncate{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
