@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase</title>
+    <link rel="stylesheet" href="../../css/materialize.css">
+    <link rel="stylesheet" href="../../css/gestion-usuario.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <nav class="teal darken-1"></nav>
+
+    <!-- contenido -->
+    <div class="container" style="min-height: calc(100vh - 276.49px);padding: 20px 0;">
+        <h5>Editar curso</h5>
+        <div class="divider"></div>
+        <form>
+            <div class="row" style="margin-top: 20px;">
+                <div class="input-field col s12 l6">
+                  <i class="material-icons prefix">fitness_center</i>
+                  <input id="nombrecurso" type="text" class="validate">
+                  <label for="nombrecurso">Nombre del curso</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">mode_edit</i>
+                  <textarea id="descripcion" class="materialize-textarea"></textarea>
+                  <label for="descripcion">Descripción</label>
+                  <span class="helper-text" data-error="wrong" data-success="right">La nueva descripción reemplazará la descripción actual</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">mode_edit</i>
+                  <textarea id="anuncio" class="materialize-textarea"></textarea>
+                  <label for="anuncio">Anuncio</label>
+                  <span class="helper-text" data-error="wrong" data-success="right">El nuevo anunio reemplazará el anuncio actual</span>
+                </div>
+              </div>
+              <div class="row" style="text-align: center;margin-bottom: 40px !important;">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Guardar cambios</button>
+              </div>
+        </form>
+        <h5>Añadir clases</h5>
+        <div class="divider"></div>
+        <div class="row" style="margin-top: 20px !important;">
+            <div class="col s12 l6">
+                <form>
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">edit</i>
+                          <input id="nombreclase" type="text" class="validate">
+                          <label for="nombreclase">Nombre del curso</label>
+                        </div>
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">tv</i>
+                          <input id="urlvideo" type="tel" class="validate">
+                          <label for="urlvideo">URL del video</label>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">date_range</i>
+                        <input id="fecha" type="text" class="datepicker">
+                        <label for="fecha">Fecha</label>
+                    </div>
+                    <div class="row" style="text-align: center;">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Añadir clase</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col s12 l6">
+                <div class="cotenedor-fila">
+								
+                    <div class="row fila ">
+                        <div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+                        <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#editarcurso"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+                        <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#eliminarcurso"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+                    </div>
+                    <div class="row fila ">
+                        <div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+                        <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#editarcurso"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+                        <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#eliminarcurso"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+                    </div>
+                    <div class="row fila ">
+                        <div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+                        <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#editarcurso"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+                        <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#eliminarcurso"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+                    </div>
+                    <div class="row fila ">
+                        <div class="col s8 l10"><p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod delectus doloremque exercitationem. Ab sed optio iste quos soluta atque non. Harum accusantium, nesciunt quia quas asperiores possimus quo beatae aperiam.</p></div>
+                        <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#editarcurso"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+                        <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#eliminarcurso"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <div id="editarcurso" class="modal">
+        <div class="modal-content">
+          <h4>Editar clase</h4>
+          <form>
+            <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">edit</i>
+                  <input id="editarnombreclase" type="text" class="validate">
+                  <label for="editarnombreclase">Nombre del curso</label>
+                </div>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">tv</i>
+                  <input id="editarurlvideo" type="tel" class="validate">
+                  <label for="editarurlvideo">URL del video</label>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">date_range</i>
+                <input id="editarfecha" type="text" class="datepicker">
+                <label for="editarfecha">Fecha</label>
+            </div>    
+          </form>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar cambios</a>
+        </div>
+    </div>
+
+    <div id="eliminarcurso" class="modal">
+        <div class="modal-content">
+            <h4>¿Realmente desear eliminar esta clase?</h4>
+            <p>Si elimina la clase, los usuario no podrán acceder mas a este contenido</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Borrar</a>
+          </div>
+    </div>
+
+
+    <!-- footer -->
+    <footer class="page-footer  teal lighten-1">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Tambien encontranos en</h5>
+                    <ul class="row">
+                        <div class="col s2">
+                            <li><img src="../..//img/facebook-brands.svg" width="40px" height="40px"></li>
+                        </div>
+                        <div class="col s10">
+                            <li>
+                                <a class="grey-text text-lighten-3" target="_blank" href="https://www.facebook.com/La-tribu-331906744299316/">La Tribu</a>
+                            </li>
+                            <li><a class="grey-text text-lighten-3" target="_blank" href="https://www.facebook.com/natatoriolatribu">Natatorio La Tribu</a></li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright teal darken-1">
+            <div class="container">
+                © 2020 Gimnasio La Tribu
+                <a class="grey-text text-lighten-4 right" target="_blank" href="https://goo.gl/maps/vDNF7g2wFNcdBht26">Belgrano 3283, Olavarria 7400</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/materialize.min.js"></script>
+	<script>
+        M.AutoInit();
+        
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     var elems = document.querySelectorAll('.datepicker');
+        //     var instances = M.Datepicker.init(elems, options);
+        // });
+	</script>
+</body>
+</html>
