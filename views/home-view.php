@@ -15,7 +15,7 @@
 				<div class="col s12" style="overflow: hidden; background: #eee;">
 					<?php foreach($cursos as $curso): ?>
 					<div class="col s12 l5 card horizontal">
-						<div class="card-image" style="height: 214.51px; width: 150px;"style="height: 214.51px; width: 150px;">
+						<div class="card-image" style="height: 214.51px; width: 150px;">
 							<img src="/img/logo.jpg" height="100%" class="of-cover">
 						</div>
 						<div class="card-stacked">
