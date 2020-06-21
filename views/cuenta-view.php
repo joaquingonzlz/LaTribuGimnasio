@@ -5,10 +5,10 @@ include_once("views/header.php"); ?>
         <div class="section">
             <h5>Datos personales</h5>
             <div class="divider"></div>
-            <div class="row">
+            <div class="row" style="margin-top: 20px !important">
                 <form class="col s12">
                   <div class="row">
-                    <div class="input-field col s12 l6" style="margin-top: 20px !important">
+                    <div class="input-field col s12 l6">
                       <input id="first_name" type="text" class="validate" value="<?php echo $datos_personales['nombre'] ?? ''; ?>">
                       <label for="first_name">Nombre</label>
                     </div>
@@ -30,7 +30,6 @@ include_once("views/header.php"); ?>
                         <span class="helper-text" data-error="Verifique el número" data-success="El formato es correcto">Sin 0 ni 15, Ejemplo: 2284 456789</span>
                       </div>
                   </div>
-                
                   <div class="row">
                     <div class="col s12" style="text-align: center;">
                         <button onclick="M.toast({html: 'Cambios guardados'})" class="btn waves-effect waves-light center" type="submit" name="action">
@@ -43,22 +42,22 @@ include_once("views/header.php"); ?>
         </div>
         <h5>Cambiar contraseña</h5>
         <div class="divider"></div>
-        <div class="row">
+        <div class="row" style="margin-top: 20px !important">
           <form>
-            <div class="input-field col s12 l6" style="margin-top: 20px !important">
-                <input id="password" type="password" class="validate">
-                <label for="password">Contraseña actual</label>
+            <div class="input-field col s12 l6">
+                <input id="passwordactual" type="password" class="validate">
+                <label for="passwordactual">Contraseña actual</label>
               </div>
             <div class="input-field col s12 l6">
-                <input id="confirmpassword" type="password" class="validate">
-                <label for="password">Nueva contraseña</label>
+                <input id="nuevapassword" type="password" class="validate">
+                <label for="nuevapassword">Nueva contraseña</label>
             </div>
             <div class="input-field col s12 l6">
                 <input id="confirmpassword" type="password" class="validate">
-                <label for="password">Confirme nueva contraseña</label>
+                <label for="confirmpassword">Confirme nueva contraseña</label>
             </div>
             <div class="row">
-                <div class="col s12" style="text-align: center;">
+                <div class="col s12" style="text-align: center;margin-top: 30px">
                     <button onclick="M.toast({html: 'Nueva contraseña guardada'})" class="btn waves-effect waves-light center" type="submit" name="action">
                         Guardar contraseña
                     </button>

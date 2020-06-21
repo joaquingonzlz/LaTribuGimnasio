@@ -4,7 +4,16 @@
 	<div class="container" style="min-height: calc(100vh - 276.49px);">
 		<div class="row" style="padding: 10px 0;">
 			<div class="col s12">
-				<div class="slide" style="background: url(/img/home.jpg) center no-repeat; background-size: cover ;height: 200px; width: 100%;"></div>
+				<div class="slider" style="height: 200px; width: 100%;">
+					<ul class="slides">
+						<li>
+							<img src="/img/photo01.png" class="responsive-img">
+						</li>
+						<li>
+							<img src="/img/photo02.png" class="responsive-img">
+						</li>
+					</ul>
+				</div>
 			</div>
 			<div class="col s12">
 				<h4>Hola de nuevo, <?php echo $neverpony; ?>
@@ -14,7 +23,7 @@
 			<div class="row" style="margin-top: 50px !important;">
 				<div class="col s12" style="overflow: hidden; background: #eee;">
 					<?php foreach($cursos as $curso): ?>
-					<div class="col s12 l5 card horizontal">
+					<div class="col s12 l5 card horizontal" style="padding:0">
 						<div class="card-image" style="height: 214.51px; width: 150px;">
 							<img src="/img/logo.jpg" height="100%" class="of-cover">
 						</div>
@@ -57,6 +66,14 @@
               object-fit: cover;
           }
       </style>
-    <?php include_once("views/footer-view.php"); ?>
+	<?php include_once("views/footer-view.php"); ?>
+	
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.slider');
+			var instances = M.Slider.init(elems,{height:200,indicators:false,duration: 20});
+		});
+
+	</script>
     </body>
 </html>

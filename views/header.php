@@ -187,12 +187,12 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 		
 		<?php if(esProfesor($_SESSION['user'])) 
 		echo '<li class="divider"></li>
-		<li><a href="/administrar.php">Administrar sistema</a></li>'
+		<li><a href="/administrar.php" class="black-text">Administrar sistema</a></li>'
 		?>
 		<li class="divider"></li>
-		<li><a href="/cuenta.php">Mi perfil</a></li>
+		<li><a href="/cuenta.php" class="black-text">Mi perfil</a></li>
 		<li class="divider"></li>
-		<li><a href="/logout.php">Cerrar sesión</a></li>
+		<li><a href="/logout.php" class="black-text">Cerrar sesión</a></li>
 	</ul>
 
 	<ul class="sidenav" id="menu-responsive">

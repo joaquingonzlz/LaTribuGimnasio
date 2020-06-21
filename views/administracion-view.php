@@ -147,12 +147,37 @@ include_once("views/header.php") ?>
 	</div>
 </div>
 </div>
+
+<style>
+	.tabs .tab a{
+		color:#00897b;
+	} /*Black color to the text*/
+
+	.tabs .tab a:hover{
+		color: #00897b;
+	}
+
+	.tabs .tab a.active {
+		background-color:#e0f2f1 !important;
+		color:#00897b;
+	} /*Background and text color when a tab is active*/
+
+	.tabs .indicator {
+		background-color:#00897b;
+	} /*Color of underline*/
+</style>
+
 <?php include_once("views/footer-view.php"); ?>
 <script>
 	document.addEventListener("DOMContentLoaded", function(){
 		let elems = document.querySelectorAll(".tabs");
 		let instance = M.Tabs.init(elems, {});
 	})
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('.modal');
+		var instances = M.Modal.init(elems);
+	});
 </script>
 </body>
 </html>

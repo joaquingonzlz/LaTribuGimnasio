@@ -47,7 +47,7 @@ include_once("views/header.php"); ?>
                         </div>
                         <div class="input-field col s12">
                           <i class="material-icons prefix">tv</i>
-                          <input id="urlvideo" type="tel" class="validate">
+                          <input id="urlvideo" type="url" class="validate">
                           <label for="urlvideo">URL del video</label>
                         </div>
 						<div class="input-field col s12">
