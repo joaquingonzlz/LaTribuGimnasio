@@ -48,11 +48,11 @@ include_once("views/header.php") ?>
 								<label for="name">Nombre del curso</label>
 							</div>
 							<div class="input-field col s12 l12">
-								<textarea id="description" class="materialize-textarea" data-length="500" maxlength="500"></textarea>
+								<textarea id="description" class="materialize-textarea validate" data-length="500" maxlength="500"></textarea>
 								<label for="description">Descripción</label>
 							</div>
 							<div class="input-field col s12 l12">
-								<textarea id="anuncio" class="materialize-textarea" data-length="300" maxlength="300"></textarea>
+								<textarea id="anuncio" class="materialize-textarea validate" data-length="300" maxlength="300"></textarea>
 								<label for="anuncio">Anuncio</label>
 							</div>
 							<div class="col s12 l12" style="text-align: center;">
@@ -177,11 +177,6 @@ include_once("views/header.php") ?>
 		modalElems = document.querySelectorAll(".modal"),
 		modals = M.Modal.init(modalElems, {});
 	})
-
-	document.addEventListener('DOMContentLoaded', function() {
-		var elems = document.querySelectorAll('.modal');
-		var instances = M.Modal.init(elems);
-	});
 </script>
 </body>
 </html>
