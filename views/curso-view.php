@@ -207,7 +207,7 @@ include_once("views/header.php") ?>
 <script>
 	document.addEventListener("DOMContentLoaded", function(){
 		let elems = document.querySelectorAll(".tabs");
-		let instance = M.Tabs.init(elems, {swipeable: true});
+		let instance = M.Tabs.init(elems,{});
 	})
 </script>
 <script src="/js/curso.js"></script>
