@@ -8,7 +8,7 @@ include_once("views/header.php"); ?>
             <div class="row">
                 <form class="col s12">
                   <div class="row">
-                    <div class="input-field col s12 l6">
+                    <div class="input-field col s12 l6" style="margin-top: 20px !important">
                       <input id="first_name" type="text" class="validate" value="<?php echo $datos_personales['nombre'] ?? ''; ?>">
                       <label for="first_name">Nombre</label>
                     </div>
@@ -33,7 +33,7 @@ include_once("views/header.php"); ?>
                 
                   <div class="row">
                     <div class="col s12" style="text-align: center;">
-                        <button onclick="M.toast({html: 'I am a toast'})" class="btn waves-effect waves-light center" type="submit" name="action">
+                        <button onclick="M.toast({html: 'Cambios guardados'})" class="btn waves-effect waves-light center" type="submit" name="action">
                             Guardar cambios
                         </button>
                     </div>
@@ -45,7 +45,7 @@ include_once("views/header.php"); ?>
         <div class="divider"></div>
         <div class="row">
           <form>
-            <div class="input-field col s12 l6">
+            <div class="input-field col s12 l6" style="margin-top: 20px !important">
                 <input id="password" type="password" class="validate">
                 <label for="password">Contraseña actual</label>
               </div>
@@ -59,7 +59,7 @@ include_once("views/header.php"); ?>
             </div>
             <div class="row">
                 <div class="col s12" style="text-align: center;">
-                    <button onclick="M.toast({html: 'I am a toast'})" class="btn waves-effect waves-light center" type="submit" name="action">
+                    <button onclick="M.toast({html: 'Nueva contraseña guardada'})" class="btn waves-effect waves-light center" type="submit" name="action">
                         Guardar contraseña
                     </button>
                 </div>

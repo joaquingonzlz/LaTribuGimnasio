@@ -13,7 +13,7 @@ include_once("views/header.php") ?>
 				<!-- <li class="tab col s3"><a href="#test-swipe-2">Preguntas y respuestas</a></li> -->
 				<li class="tab col s3"><a href="#test-swipe-3">Anuncios</a></li>
 			</ul>
-			<div id="test-swipe-4" class="col s12 ">
+			<div id="test-swipe-4" class="col s12 " style="overflow: auto;">
 				<!-- UL del sidebar pasa aquí cuando la pantalla es chica -->
 			</div>
 			<div id="test-swipe-1" class="col s12">
