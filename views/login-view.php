@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="input-field col s12">
 						<label for="username">Documento</label>
-						<input name="username" id="username" type="text" class="validate" autocomplete="username" autofocus>
+						<input name="user" id="username" type="text" class="validate" autocomplete="username" autofocus>
 					</div>
 					<div class="input-field col s12">
 						<label for="password">Contraseña</label>
@@ -33,17 +33,17 @@
 						<i class="material-icons right">send</i>
 					</button>
 				</div>
-				<div class="row">
+				<!-- <div class="row">
 					<div class="section col s12">
 						<a href="#">¿Olvidó su nombre de usuario o contraseña?</a>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</form>
 	</div>
 	</div>
 	<script src="/js/materialize.js"></script>
-	<script src="/js/login.js"></script>
+	<script type="module" src="/js/login.js"></script>
 </body>
 
 </html>

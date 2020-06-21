@@ -1,20 +1,10 @@
-const getDatos = () => {
-	const user = document.getElementById('username').value,
-		password = document.getElementById('password').value;
-	return { user, password };
-}
+import { enviarPeticion as xhr } from "./fetch.js";
+import { getDatos } from "./formularios.js";
 
 const sendLoginInfo = async() => {
-	let fd = new FormData(),
-		input = getDatos();
-	fd.append('user', input.user);
-	fd.append('password', input.password);
-	const req = await fetch('/api/php/login.php', {
-		method: 'POST',
-		body: fd,
-		mode: 'cors'
-	});
-	const res = await req.json();
+	const loginForm = document.getElementById("login-form"),
+		fd = getDatos(loginForm);
+	const res = await xhr("login.php", fd);
 	if (res.error) mostrarError(res.error);
 	else location.href = '/';
 }
