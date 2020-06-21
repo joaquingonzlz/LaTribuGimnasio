@@ -41,18 +41,18 @@ include_once("views/header.php") ?>
 				<div class="col s12 l5">
 					<h5>Crear curso</h5>
 					<div class="divider"></div>
-					<form>
+					<form id="crear-curso">
 						<div class="row">
 							<div class="input-field col s12 l12">
-								<input id="name" type="text" class="validate">
+								<input id="name" type="text" class="validate" data-length="20" maxlength="20">
 								<label for="name">Nombre del curso</label>
 							</div>
 							<div class="input-field col s12 l12">
-								<textarea id="description" class="materialize-textarea" data-length="120"></textarea>
-								<label for="description">Descripcion</label>
+								<textarea id="description" class="materialize-textarea" data-length="500" maxlength="500"></textarea>
+								<label for="description">Descripción</label>
 							</div>
 							<div class="input-field col s12 l12">
-								<textarea id="anuncio" class="materialize-textarea" data-length="120"></textarea>
+								<textarea id="anuncio" class="materialize-textarea" data-length="300" maxlength="300"></textarea>
 								<label for="anuncio">Anuncio</label>
 							</div>
 							<div class="col s12 l12" style="text-align: center;">
@@ -169,9 +169,13 @@ include_once("views/header.php") ?>
 
 <?php include_once("views/footer-view.php"); ?>
 <script>
-	document.addEventListener("DOMContentLoaded", function(){
-		let elems = document.querySelectorAll(".tabs");
-		let instance = M.Tabs.init(elems, {});
+	document.addEventListener("DOMContentLoaded", ()=>{
+		let tabElems = document.querySelectorAll(".tabs"),
+		tabs = M.Tabs.init(tabElems, {}),
+		counterElems = document.querySelectorAll("[data-length]"),
+		charCounters = M.CharacterCounter.init(counterElems, {}),
+		modalElems = document.querySelectorAll(".modal"),
+		modals = M.Modal.init(modalElems, {});
 	})
 
 	document.addEventListener('DOMContentLoaded', function() {
