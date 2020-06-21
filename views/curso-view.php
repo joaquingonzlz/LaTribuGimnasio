@@ -18,7 +18,6 @@ include_once("views/header.php") ?>
 			</div>
 			<div id="test-swipe-1" class="col s12">
 				<section class="container">
-					<div class="divider"></div>
 					<div class="section">
 						<h5>Descripción</h5>
 						<p>
@@ -37,9 +36,14 @@ include_once("views/header.php") ?>
             </section>
           </div> -->
 			<div id="test-swipe-3" class="col s12">
-				<p>
-					<?php echo $datos_curso['anuncio']; ?>
-				</p>
+				<section class="container">
+					<div class="section">
+						<h5>Anuncio</h5>
+						<p>
+							<?php echo $datos_curso['anuncio']; ?>
+						</p>
+					</div>
+				</section>
 			</div>
 
 		</section>
@@ -185,7 +189,9 @@ include_once("views/header.php") ?>
 <script>
 	document.addEventListener("DOMContentLoaded", function(){
 		let elems = document.querySelectorAll(".tabs");
-		let instance = M.Tabs.init(elems, {});
+		let instance = M.Tabs.init(elems, {
+			swipeable: true;
+		});
 	})
 </script>
 <script src="/js/curso.js"></script>
