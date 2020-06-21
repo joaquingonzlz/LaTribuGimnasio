@@ -148,6 +148,11 @@ include_once("views/header.php") ?>
 </div>
 </div>
 <?php include_once("views/footer-view.php"); ?>
-<script>M.AutoInit();</script>
+<script>
+	document.addEventListener("DOMContentLoaded", function(){
+		let elems = document.querySelectorAll(".tabs");
+		let instance = M.Tabs.init(elems, {});
+	})
+</script>
 </body>
 </html>

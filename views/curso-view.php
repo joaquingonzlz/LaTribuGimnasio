@@ -183,6 +183,9 @@ include_once("views/header.php") ?>
 	</div>
 </div>
 <script>
-	M.AutoInit();
+	document.addEventListener("DOMContentLoaded", function(){
+		let elems = document.querySelectorAll(".tabs");
+		let instance = M.Tabs.init(elems, {});
+	})
 </script>
 <script src="/js/curso.js"></script>
