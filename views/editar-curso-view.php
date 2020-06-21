@@ -89,7 +89,7 @@ include_once("views/header.php"); ?>
                 </div>
                 <div class="input-field col s12">
                   <i class="material-icons prefix">tv</i>
-                  <input id="editarurlvideo" type="tel" class="validate">
+                  <input id="editarurlvideo" type="text" class="validate">
                   <label for="editarurlvideo">URL al video</label>
                 </div>
 				<div class="input-field col s12">
@@ -122,8 +122,11 @@ include_once("views/header.php"); ?>
         
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.datepicker');
-            var instances = M.Datepicker.init(elems, {});
+            var instances = M.Datepicker.init(elems, {
+				autoClose: true
+			});
         });
 	</script>
+	<script src="/js/editar-curso.js"></script>
 </body>
 </html>
