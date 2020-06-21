@@ -184,8 +184,13 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 	<!-- cuenta -->
 
 	<ul id="list-count" class="dropdown-content">
+		
+		<?php if(esProfesor($_SESSION['user'])) 
+		echo '<li class="divider"></li>
+		<li><a href="/administrar.php">Administrar</a></li>'
+		?>
 		<li class="divider"></li>
-		<li><a href="#">Cuenta</a></li>
+		<li><a href="/cuenta.php">Cuenta</a></li>
 		<li class="divider"></li>
 		<li><a href="/logout.php">Cerrar sesión</a></li>
 	</ul>
@@ -204,7 +209,10 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 				</div>
 				<div class="collapsible-body">
 					<ul>
-						<li><a href="#">Cuenta</a></li>
+						<?php if(esProfesor($_SESSION['user'])) 
+						echo '<li><a href="/administrar.php">Administrar</a></li>'
+						?>
+						<li><a href="/cuenta.php">Cuenta</a></li>
 						<li><a href="/logout.php">Cerrar sesión</a></li>
 					</ul>
 				</div>

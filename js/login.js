@@ -32,7 +32,12 @@ document.addEventListener("DOMContentLoaded", (evt) => {
 		if (e.target.reportValidity())
 			sendLoginInfo();
 	})
+
 	setTimeout(function() {
-		M.updateTextFields();
-	}, 30);
+		var pass = document.forms[0].elements[1],
+			bg = pass.computedStyleMap().get("background-color");
+		//Cuando el navegador autocompleta este campo, le pone un color
+		if (bg.toString() != "rgba(0, 0, 0, 0)")
+			pass.labels[0].classList.add("active");
+	}, 10);
 })

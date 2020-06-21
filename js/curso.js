@@ -3,12 +3,14 @@ const moverSidebar = (e) => {
 		tab = document.getElementById("test-swipe-4");
 	if (window.innerWidth < 993 && tab.childElementCount <= 0) {
 		//Llevar el contenido del curso a las pestañas
-		tab.innerHTML = sidebar.innerHTML;
-		sidebar.innerHTML = '';
+		tab.appendChild(sidebar.removeChild(sidebar.firstElementChild));
+		// tab.innerHTML = sidebar.innerHTML;
+		// sidebar.innerHTML = '';
 	} else if (sidebar.childElementCount <= 0 && window.innerWidth >= 993) {
 		//Llevar el contenido del curso al sidebar
-		sidebar.innerHTML = tab.innerHTML;
-		tab.innerHTML = '';
+		sidebar.appendChild(tab.removeChild(tab.firstElementChild));
+		// sidebar.innerHTML = tab.innerHTML;
+		// tab.innerHTML = '';
 		if (tab.classList.contains("active")) {
 			document.getElementById("tab-descripcion").click();
 		}

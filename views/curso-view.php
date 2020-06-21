@@ -6,13 +6,16 @@ include_once("views/header.php") ?>
 		<div class="video-container">
 			<iframe width="1025" height="414" src="https://www.youtube.com/embed/<?php echo $ultimo_visto; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
-		<section style="padding: 20px; min-height:300px;">
+		<section class="row" style="padding: 20px; min-height:300px;">
 			<ul id="tabs-swipe-demo" class="tabs">
 				<li class="hide-on-large-only tab col s3"><a href="#test-swipe-4">Contenido del curso</a></li>
 				<li class="tab col s3"><a href="#test-swipe-1" id="tab-descripcion" class="active">Descripción</a></li>
 				<!-- <li class="tab col s3"><a href="#test-swipe-2">Preguntas y respuestas</a></li> -->
 				<li class="tab col s3"><a href="#test-swipe-3">Anuncios</a></li>
 			</ul>
+			<div id="test-swipe-4" class="col s12 ">
+				<!-- UL del sidebar pasa aquí cuando la pantalla es chica -->
+			</div>
 			<div id="test-swipe-1" class="col s12">
 				<section class="container">
 					<div class="divider"></div>
@@ -37,10 +40,6 @@ include_once("views/header.php") ?>
 				<p>
 					<?php echo $datos_curso['anuncio']; ?>
 				</p>
-			</div>
-
-			<div id="test-swipe-4" class="col s12 ">
-				<!-- UL del sidebar pasa aquí cuando la pantalla es chica -->
 			</div>
 
 		</section>

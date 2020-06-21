@@ -6,7 +6,7 @@ function connectDB() : PDO {
 	global $db;
 	if($db === NULL){
 		try {
-			$prefix = $_SERVER['DOCUMENT_ROOT'] != "D:/xampp/htdocs/latribu" ? 'u464982645_' : '';
+			$prefix = 'u464982645_';
 			$db = new PDO("mysql:host=localhost; dbname=${prefix}latribu", $prefix.'angelo', 'SUfU4995...');
 			$db->exec("SET lc_time_names = es_AR");
 		} catch (PDOException $e) {
