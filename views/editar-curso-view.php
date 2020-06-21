@@ -123,7 +123,15 @@ include_once("views/header.php"); ?>
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.datepicker');
             var instances = M.Datepicker.init(elems, {
-				autoClose: true
+				      autoClose: true,
+              format: 'dd mmmm yyyy',
+              i18n: {months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ], 
+                    cancel: "cerrar",
+                    monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Nov","Dic"],
+                    weekdaysAbbrev: ["D", "L","M", "Mi", "J", "V", "S"],
+                    weekdays: ["Domingo","Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado" ],
+                    weekdaysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+                    }
 			});
         });
 	</script>
