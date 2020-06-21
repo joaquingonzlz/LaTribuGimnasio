@@ -1,4 +1,4 @@
-<?php $title = "Editar Curso | $curso[nombre]";
+<?php $title = "Editar Curso | $datos_curso[nombre]";
 include_once("views/header.php"); ?>
     <link rel="stylesheet" href="/css/gestion-usuario.css">
 
@@ -10,14 +10,14 @@ include_once("views/header.php"); ?>
             <div class="row" style="margin-top: 20px;">
                 <div class="input-field col s12 l6">
                   <i class="material-icons prefix">fitness_center</i>
-                  <input id="nombrecurso" type="text" class="validate" value="<?php echo $curso['nombre']; ?>">
+                  <input id="nombrecurso" type="text" class="validate" value="<?php echo $datos_curso['nombre']; ?>">
                   <label for="nombrecurso">Nombre del curso</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">mode_edit</i>
-                  <textarea id="descripcion" class="materialize-textarea"><?php echo $curso['descripcion'] ?? ''; ?></textarea>
+                  <textarea id="descripcion" class="materialize-textarea"><?php echo $datos_curso['descripcion'] ?? ''; ?></textarea>
                   <label for="descripcion">Descripción</label>
                   <span class="helper-text">La nueva descripción reemplazará la descripción actual</span>
                 </div>
@@ -25,7 +25,7 @@ include_once("views/header.php"); ?>
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">mode_edit</i>
-                  <textarea id="anuncio" class="materialize-textarea"><?php echo $curso['anuncio'] ?? ''; ?></textarea>
+                  <textarea id="anuncio" class="materialize-textarea"><?php echo $datos_curso['anuncio'] ?? ''; ?></textarea>
                   <label for="anuncio">Anuncio</label>
                   <span class="helper-text">El nuevo anuncio reemplazará el anuncio actual</span>
                 </div>
