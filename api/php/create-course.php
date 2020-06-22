@@ -7,7 +7,7 @@ if(!esProfesor($_SESSION['user'])) http_response_code(403);
 else if(empty($_POST)) http_response_code(404);
 else{
 	$nombre = limpiarString($_POST['name']);
-	$descripcion = limpiarString($_POST['descripcion']);
+	$descripcion = limpiarString($_POST['description']);
 	$anuncio = empty($_POST['anuncio']) ? "Bienvenido al curso $nombre!" : limpiarString($_POST['anuncio']);
 
 	$db = connectDB();

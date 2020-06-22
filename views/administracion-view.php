@@ -29,11 +29,11 @@ include_once("views/header.php") ?>
 					<!-- Modal Structure -->
 					<div id="modal1" class="modal">
 					  <div class="modal-content">
-						<h4>¿Realmente desear eliminar el curso?</h4>
+						<h4>¿Realmente desear eliminar el curso <b id="title-course"></b>?</h4>
 						<p>Si elimina este curso, se borrará junto con todas sus clases</p>
 					  </div>
 					  <div class="modal-footer">
-						<a href="#!" class="btn modal-close waves-effect waves-green btn-flat">Si, eliminar</a>
+						<a id="btn-delete-course" href="#!" class="modal-close waves-effect waves-green btn-flat">Si, eliminar</a>
 					  </div>
 					</div>
 				</div>
@@ -57,11 +57,11 @@ include_once("views/header.php") ?>
 							</div>
 							<div class="col s12 l12" style="text-align: center;">
 								<button class="btn waves-effect waves-light" type="submit" name="action">Crear</button>
-							</div>   
+							</div>
 						</div>
-					</form> 
+					</form>
 				</div>
-			</div>           
+			</div>
 		</section>
 	</div>
 	<div id="test2" class="col s12">
@@ -178,5 +178,6 @@ include_once("views/header.php") ?>
 		modals = M.Modal.init(modalElems, {});
 	})
 </script>
+<script src="/js/administrar.js" type="module"></script>
 </body>
 </html>

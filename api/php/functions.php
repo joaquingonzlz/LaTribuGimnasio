@@ -10,7 +10,8 @@ function connectDB() : PDO {
 			$db = new PDO("mysql:host=localhost; dbname=${prefix}latribu", $prefix.'angelo', 'SUfU4995...');
 			$db->exec("SET lc_time_names = es_AR");
 		} catch (PDOException $e) {
-			echo 'Error: '.$e->getMessage();
+			echo json_encode(['error' => "No se puede conectar a la base de datos", 'sqlstate' => $e->getMessage()]);
+			http_response_code(500);
 			exit(1);
 		}
 	}

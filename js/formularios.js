@@ -1,5 +1,5 @@
 /** Obtiene un objeto FormData que representa los datos del formulario
- * @param form HTMLFormElement. El formulario a ser analizado.
+ * @param {HTMLFormElement} form El formulario a ser analizado.
  * @returns un objeto FormData o undefined si el formulario no es válido
  */
 export const getDatos = (form) => {
