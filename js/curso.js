@@ -16,13 +16,24 @@ const ultimoVisto = (clase) => {
 	let fd = "uv=" + clase;
 	// enviarPeticion("")
 }
-const selectClase = (e) => {
-	const video = e.target.id;
-	document.getElementById("iframe-clase").src = "https://www.youtube.com/embed/" + video;
-	ultimoVisto(video);
-}
-
 window.addEventListener("resize", moverSidebar);
 document.addEventListener("DOMContentLoaded", (e) => {
 	moverSidebar(e);
+	const classSelectors = document.getElementsByName("class-selector"),
+		videoPlayer = document.getElementById("video-player");
+	for (let cs of classSelectors) {
+		cs.addEventListener('click', e => {
+			e.preventDefault();
+			let video = cs;
+			while (!video.getAttribute("data-video")) {
+				video = video.parentElement;
+				console.log("subiendo");
+			}
+			console.log(video);
+			videoPlayer.src = `https://www.youtube.com/embed/${video.getAttribute("data-video")}`;
+			video = video.parentElement.parentElement;
+			video.parentElement.getElementsByClassName("seleccionado")[0].classList.remove("seleccionado");
+			video.classList.add("seleccionado");
+		});
+	}
 })

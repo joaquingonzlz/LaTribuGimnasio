@@ -4,7 +4,7 @@ include_once("views/header.php") ?>
 <div class="row" style="margin: 0;">
 	<div class="col s12 l9" style="padding: 0;">
 		<div class="video-container">
-			<iframe width="1025" height="414" src="https://www.youtube.com/embed/<?php echo $ultimo_visto; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe id="video-player" width="1025" height="414" src="https://www.youtube.com/embed/<?php echo $ultimo_visto; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
 		<section class="row" style="padding: 20px; min-height:300px;">
 			<ul id="tabs-swipe-demo" class="tabs">
@@ -58,32 +58,37 @@ include_once("views/header.php") ?>
 				</h6>
 			</li>
 			<?php for($i = 0; $i < count($clases); $i++): ?>
-			<li class="collection-item">
+			<li class="collection-item grey-text text-darken-4 <?php echo$clases[$i]['video'] == $ultimo_visto ? "seleccionado" : '';?>" id="<?php echo $clases[$i]['id']; ?>">
 				<div class="row">
-					<div class="col s1">
-						<p>
-							<?php echo $i+1; ?>
-						</p>
-					</div>
-					<div class="col s11">
-						<p>
-							<?php echo $clases[$i]['titulo']; ?>
-						</p>
-					</div>
+					<a href="#!" name="class-selector" data-video="<?php echo $clases[$i]['video']; ?>" class="col s12 grey-text text-darken-4">
+						<span class="row">
+							<div class="col s1">
+								<p>
+									<?php echo $i+1; ?>
+								</p>
+							</div>
+							<div class="col s11">
+								<p>
+									<?php echo $clases[$i]['titulo']; ?>
+								</p>
+							</div>
+						</span>
+					</a>
 					<div class="col s6">
-						<form>
-							<p style="margin: 0;">
-								<label>
-                      <input type="checkbox" <?php if(isset($vistos) && $vistos[$i]['visto']) echo "checked" ?>>
-                      <span>Visto</span>
-                    </label>
-							</p>
-						</form>
+						<label class="secondary-content grey-text text-darken-4" style="float: none;">
+							<input type="checkbox" <?php if(isset($vistos) && $vistos[$i]['visto']) echo "checked" ?>>
+							<span>Visto</span>
+						</label>
 					</div>
 					<div class="col s6">
 						<span class="right"><?php echo toReadableTime($clases[$i]['duracion']); ?></span>
 					</div>
 				</div>
+				<style>
+					.collection-item.seleccionado{
+						background-color: #00897b50;
+					}
+				</style>
 			</li>
 			<?php endfor; ?>
 		</ul>
