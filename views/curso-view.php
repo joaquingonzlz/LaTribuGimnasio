@@ -58,7 +58,7 @@ include_once("views/header.php") ?>
 				</h6>
 			</li>
 			<?php for($i = 0; $i < count($clases); $i++): ?>
-			<li class="collection-item grey-text text-darken-4 <?php echo$clases[$i]['video'] == $ultimo_visto ? "seleccionado" : '';?>" id="<?php echo $clases[$i]['id']; ?>">
+			<li class="collection-item grey-text text-darken-4 <?php echo$clases[$i]['video'] == $ultimo_visto ? "seleccionado" : '';?>" id="class_<?php echo $clases[$i]['id']; ?>">
 				<div class="row">
 					<a href="#!" name="class-selector" data-video="<?php echo $clases[$i]['video']; ?>" class="col s12 grey-text text-darken-4">
 						<span class="row">
@@ -76,7 +76,7 @@ include_once("views/header.php") ?>
 					</a>
 					<div class="col s6">
 						<label class="secondary-content grey-text text-darken-4" style="float: none;">
-							<input type="checkbox" <?php if(isset($vistos) && $vistos[$i]['visto']) echo "checked" ?>>
+							<input data-class="<?php echo $clases[$i]['id']; ?>" type="checkbox" <?php if(isset($vistos) && $vistos[$i]['visto']) echo "checked" ?>>
 							<span>Visto</span>
 						</label>
 					</div>
@@ -118,4 +118,4 @@ include_once("views/header.php") ?>
 		let instance = M.Tabs.init(elems,{});
 	})
 </script>
-<script src="/js/curso.js"></script>
+<script src="/js/curso.js" type="module"></script>

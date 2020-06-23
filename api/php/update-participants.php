@@ -19,18 +19,17 @@ else{
 		if(!empty($upd)) $upd .= ", ";
 		$upd .= "anuncio = 0";
 	}
-	if(isset($_POST['visto'])){
-		$video = $_POST['video'];
-		$updVistos = "UPDATE vistos SET visto = 1 WHERE estudiante = $user AND clase IN (
-			SELECT id FROM clases WHERE curso = $cur AND video = :vid
-		)";
+	if(isset($_POST['seen'])){
+		$seen = limpiarInt($_POST['seen']);
+		$class = getCourse($_POST['video']);
+		$updVistos = "UPDATE vistos SET visto = $seen WHERE estudiante = $user AND clase = :class";
 
 		$db = connectDB();
-		$db->prepare($updVistos)->execute([':vid'=>$video]);
+		$db->prepare($updVistos)->execute([':class'=>$class]);
 		$vistas = $db->query("SELECT COUNT(1) FROM vistos WHERE estudiante = $dni AND visto = 1 AND curso = $cur")->fetchColumn();
 		if($vistas === false) $vistas = 0;
-		$clases = $db->query("SELECT COUNT(1) FROM clases WHERE curso = $cur")->fetchColumn();
-		$progreso = floor($vistas/$clases*100);
+		$clases = $db->query("SELECT COUNT(1) FROM clase WHERE curso = $cur")->fetchColumn();
+		$progreso = intdiv(100*$vistas, $clases);
 		if(!empty($upd)) $upd .= ", ";
 		$upd .= "progreso = :prg";
 		$argUpd[':prg'] = $progreso;
@@ -42,7 +41,7 @@ else{
 			http_response_code(500);
 			echo json_encode(["error"=>"Ocurrió un error en la base de datos", "sqlstate"=>$ps->errorInfo()]);
 		}else{
-			echo json_encode(["error"=>false]);
+			echo json_encode(["error"=>false, 'updated'=>$argUpd]);
 		}
 	}
 }
