@@ -6,12 +6,13 @@ import { mostrarMensaje } from "./mensajes.js";
 const createCourse = async(form) => {
 	const fd = getDatos(form),
 		res = await enviarPeticion("create-course.php", fd);
-	await mostrarMensaje(res.error || "Curso creado exitosamente", location.reload, !!res.error);
+	await mostrarMensaje(res.error || "Curso creado exitosamente", () => location.reload(), !!res.error);
 }
 document.addEventListener("DOMContentLoaded", () => {
 	const crearCursoForm = document.getElementById("crear-curso"),
 		crearUsuarioForm = document.getElementById("crear-usuario"),
-		eliminarCursos = document.querySelectorAll("a.modal-trigger[href='#modal1']");
+		eliminarCursos = document.querySelectorAll("a.modal-trigger[href='#modal1']"),
+		eliminarUsuarios = document.querySelectorAll("a.modal-trigger[href='#modal2']");
 
 	crearCursoForm.addEventListener('submit', (e) => {
 		e.preventDefault();
@@ -26,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		while (!course.id.startsWith("course_")) {
 			course = course.parentElement;
 		}
-		console.log(course);
 		const nombreCurso = course.getElementsByTagName('p')[0].innerText;
 		elem.addEventListener("click", e => {
 			bindCourse(course.id, btnDeleteCourse, titleCourse, nombreCurso);
@@ -38,12 +38,25 @@ document.addEventListener("DOMContentLoaded", () => {
 			createUser(e.target);
 		}
 	});
+	let btnDeleteUser = document.getElementById("btn-delete-user"),
+		titleUser = document.getElementById("title-user");
+	eliminarUsuarios.forEach(elem => {
+		let user = elem;
+		while (!user.id.startsWith("user_")) {
+			user = user.parentElement;
+		}
+		const nombreUsuario = user.getElementsByTagName("p")[2].innerText;
+		elem.addEventListener("click", e => {
+			e.preventDefault();
+			bindUser(user.id, btnDeleteUser, titleUser, nombreUsuario);
+		})
+	});
 });
 
-const bindCourse = (id, btn, title, nombreCurso) => {
-	let idCurso = id.substr(7);
-	title.innerHTML = nombreCurso;
-	btn.onclick = function(e) {
+const bindCourse = (rowId, modalBtn, modalTitle, nombreCurso) => {
+	let idCurso = rowId.substr(7);
+	modalTitle.innerHTML = nombreCurso;
+	modalBtn.onclick = function(e) {
 		e.preventDefault();
 		remove(idCurso, false);
 	}
@@ -58,11 +71,24 @@ const remove = async(id, usuario = true) => {
 		classes: `lighten-2 ${res.error ? "red" : "green"}`
 	})
 	if (!res.error)
-		document.getElementById(`course_${id}`).remove();
+		document.getElementById(
+			usuario ?
+			`user_${id}` :
+			`course_${id}`
+		).remove();
 }
 const createUser = async form => {
 	const fd = getDatos(form),
 		res = enviarPeticion("create-user.php", fd);
 	console.log(res);
-	await mostrarMensaje(res.error || `Agregaste correctamente a ${fd.get('firstname')}`, () => {} /*  location.reload() */ , !!res.error);
+	await mostrarMensaje(res.error || `Agregaste correctamente a ${fd.get('firstname')}`, () => location.reload(), !!res.error);
+}
+
+const bindUser = (rowId, modalBtn, modalTitle, nombreUsuario) => {
+	let dni = rowId.substr(5);
+	modalTitle.innerHTML = nombreUsuario;
+	modalBtn.onclick = function(e) {
+		e.preventDefault();
+		remove(dni);
+	}
 }

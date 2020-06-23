@@ -13,7 +13,5 @@ export const mostrarMensaje = async(msj, cb, error = false) => {
 		}`
 	});
 	if (!error)
-		setTimeout(() => {
-			cb();
-		}, 1000);
+		setTimeout(cb, 1000);
 }

@@ -29,7 +29,7 @@ include_once("views/header.php") ?>
 					<!-- Modal Structure -->
 					<div id="modal1" class="modal">
 					  <div class="modal-content">
-						<h4>¿Realmente desear eliminar el curso <b id="title-course"></b>?</h4>
+						<h4>¿Realmente querés eliminar el curso <b id="title-course"></b>?</h4>
 						<p>Si elimina este curso, se borrará junto con todas sus clases</p>
 					  </div>
 					  <div class="modal-footer">
@@ -84,11 +84,11 @@ include_once("views/header.php") ?>
 					<!-- Modal Structure -->
 					<div id="modal2" class="modal">
 					  <div class="modal-content">
-						<h4>¿Realmente desear eliminar a usuario?</h4>
-						<p>Si elimina a usuario, perderá toda su información, como su progresos en los cursos</p>
+						<h4>¿Realmente querés eliminar a <b id="title-user"></b>?</h4>
+						<p>Si elimina a este usuario, perderá toda su información, como su progresos en los cursos</p>
 					  </div>
 					  <div class="modal-footer">
-						<a href="#!" class="modal-close waves-effect waves-green btn-flat">Si, eliminar</a>
+						<a href="#!" id="btn-delete-user" class="modal-close waves-effect waves-green btn-flat">Si, eliminar</a>
 					  </div>
 					</div>
 				</div>
