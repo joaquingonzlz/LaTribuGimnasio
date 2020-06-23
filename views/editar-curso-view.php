@@ -13,6 +13,7 @@ include_once("views/header.php"); ?>
                   <input id="nombrecurso" type="text" class="validate" value="<?php echo $datos_curso['nombre']; ?>">
                   <label for="nombrecurso">Nombre del curso</label>
                 </div>
+						<input required type="hidden" name=course value="<?php echo $datos_curso['id']; ?>">
               </div>
               <div class="row">
                 <div class="input-field col s12">
@@ -38,26 +39,27 @@ include_once("views/header.php"); ?>
         <div class="divider"></div>
         <div class="row" style="margin-top: 20px !important;">
             <div class="col s12 l6">
-                <form>
+                <form id="form-create-class">
                     <div class="row">
                         <div class="input-field col s12">
                           <i class="material-icons prefix">edit</i>
-                          <input id="nombreclase" type="text" class="validate">
+                          <input name="title" id="nombreclase" type="text" class="validate" required>
                           <label for="nombreclase">Título para la clase</label>
-                        </div>
+						</div>
+						<input required type="hidden" name=course value="<?php echo $datos_curso['id']; ?>">
                         <div class="input-field col s12">
                           <i class="material-icons prefix">tv</i>
-                          <input id="urlvideo" type="url" class="validate">
+                          <input name="video" id="urlvideo" type="url" class="validate">
                           <label for="urlvideo">URL del video</label>
                         </div>
 						<div class="input-field col s12">
 							<i class="material-icons prefix">date_range</i>
-							<input id="fecha" type="text" class="datepicker">
+							<input name="date" id="fecha" type="text" class="datepicker">
 							<label for="fecha">Fecha</label>
-                    </div>
+                    	</div>
                     </div>
                     <div class="row" style="text-align: center;">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Añadir clase</button>
+                        <button class="btn waves-effect waves-light" type="submit">Añadir clase</button>
                     </div>
                 </form>
             </div>
@@ -65,7 +67,7 @@ include_once("views/header.php"); ?>
                 <div class="cotenedor-fila">
 					<?php foreach($clases as $c): ?>
                     <div class="row fila" id="<?php echo "clase_$c[id]"; ?>">
-                        <div class="col s8 l10"><p class="truncate"><?php echo $c['nombre']; ?></p></div>
+                        <div class="col s8 l10"><p class="truncate"><?php echo $c['titulo']; ?></p></div>
                         <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#editarcurso"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
                         <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#eliminarcurso"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
 					</div>
@@ -116,13 +118,12 @@ include_once("views/header.php"); ?>
     </div>
 <?php include_once("views/footer-view.php"); ?>
 
-    <script src="/js/materialize.min.js"></script>
 	<script>
         // M.AutoInit();
         
         document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.datepicker');
-            var instances = M.Datepicker.init(elems, {
+            const dpElems = document.querySelectorAll('.datepicker');
+            const datepickers = M.Datepicker.init(dpElems, {
 				      autoClose: true,
               format: 'dd mmmm yyyy',
               i18n: {months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ], 
@@ -133,8 +134,10 @@ include_once("views/header.php"); ?>
                     weekdaysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
                     }
 			});
+			const modalElems = document.querySelectorAll(".modal"),
+			modals = M.Modal.init(modalElems, {});
         });
 	</script>
-	<script src="/js/editar-curso.js"></script>
+	<script src="/js/clases.js" type="module"></script>
 </body>
 </html>

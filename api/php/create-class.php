@@ -5,27 +5,28 @@ require_once("functions.php");
 
 if(esProfesor($_SESSION['user'])){
 	if(!empty($_POST)){
+		$titulo = limpiarString($_POST['title']);
 		$video = getYoutubeID($_POST['video']);
 		$curso = $_POST['course'] ?? 1;
-		$descripcion = mb_strimwidth(limpiarString($_POST['description'] ?? ''),0,255);
 		
 		$duracion = getDuracion($video);
-		$fecha = (new DateTime('now', $timezone))->format("Y-m-d");
+		$fecha = $_POST['date'];
 
 		$db = connectDB();
-		$ps = $db->prepare("INSERT INTO clases(curso, video, duracion, fecha)
-		VALUES (:cur, :vid, $duracion, $fecha)");
+		$ps = $db->prepare("INSERT INTO clase(titulo, curso, video, duracion, fecha)
+		VALUES (:tit, :cur, :vid, $duracion, $fecha)");
 		if(!$ps->execute([
 			':cur'=>$curso,
-			':vid'=>$video
+			':vid'=>$video,
+			':tit' => $titulo
 		])){
 			http_response_code(500);
 			echo json_encode(['error'=>'Ocurrió un error en la base de datos', 'sqlstate'=>$ps->errorInfo()]);
 		}else{
-			echo json_encode(['error'=>false,'inserted'=>[
-				$ps->fetch()
-			]]);
 			$clase = $db->lastInsertId();
+			echo json_encode(['error'=>false,'inserted'=>[
+				$db->query("SELECT * FROM clase WHERE id = $clase", PDO::FETCH_ASSOC)->fetch()
+			]]);
 			$participantes = $db->query("SELECT estudiante FROM participantes WHERE curso = $curso")->fetchAll(PDO::FETCH_NUM);
 			$values = '';
 			foreach($participantes as $p){

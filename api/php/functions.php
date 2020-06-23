@@ -94,4 +94,15 @@ function getDiferencia(DateTime $fecha1, DateTime $fecha2):array{
 	$segundos %= 60;
 	return [$dias, $horas, $minutos, $segundos];
 }
+function toReadableTime(int $millis):string{
+	$seg = intdiv($millis,1000);
+	$horas = intdiv($seg, 3600);
+	$seg %= 3600;
+	$mins = intdiv($seg, 60);
+	$seg %= 60;
+	$res = '';
+	if($horas > 0) $res .= str_pad($horas, 2, "0", STR_PAD_LEFT) . ":";
+	$res .= str_pad($mins, 2, "0", STR_PAD_LEFT) . ":" . str_pad($seg, 2, "0", STR_PAD_LEFT);
+	return $res;
+}
 ?>

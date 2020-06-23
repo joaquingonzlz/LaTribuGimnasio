@@ -4,13 +4,9 @@ const moverSidebar = (e) => {
 	if (window.innerWidth < 993 && tab.childElementCount <= 0) {
 		//Llevar el contenido del curso a las pestañas
 		tab.appendChild(sidebar.removeChild(sidebar.firstElementChild));
-		// tab.innerHTML = sidebar.innerHTML;
-		// sidebar.innerHTML = '';
 	} else if (sidebar.childElementCount <= 0 && window.innerWidth >= 993) {
 		//Llevar el contenido del curso al sidebar
 		sidebar.appendChild(tab.removeChild(tab.firstElementChild));
-		// sidebar.innerHTML = tab.innerHTML;
-		// tab.innerHTML = '';
 		if (tab.classList.contains("active")) {
 			document.getElementById("tab-descripcion").click();
 		}

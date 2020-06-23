@@ -57,109 +57,12 @@ include_once("views/header.php") ?>
 					<?php echo $datos_curso['nombre']; ?>
 				</h6>
 			</li>
-
-
-			<li class="collection-item">
-					<div class="row">
-						<div class="col s1">
-							<p>1</p>
-						</div>
-						<div class="col s11">
-							<p>Titulo del video</p>
-						</div>
-						<div class="col s6">
-							<form>
-								<p style="margin: 0;">
-									<label>
-                      <input type="checkbox"/>
-                      <span>Visto</span>
-                    </label>
-								</p>
-							</form>
-						</div>
-						<div class="col s6">
-							<span class="right">00:00</span>
-						</div>
-					</div>
-				</li>
-				<li class="collection-item">
-					<div class="row">
-						<div class="col s1">
-							<p>1</p>
-						</div>
-						<div class="col s11">
-							<p>Titulo del video</p>
-						</div>
-						<div class="col s6">
-							<form>
-								<p style="margin: 0;">
-									<label>
-                      <input type="checkbox"/>
-                      <span>Visto</span>
-                    </label>
-								</p>
-							</form>
-						</div>
-						<div class="col s6">
-							<span class="right">00:00</span>
-						</div>
-					</div>
-				</li>
-				<li class="collection-item">
-					<div class="row">
-						<div class="col s1">
-							<p>1</p>
-						</div>
-						<div class="col s11">
-							<p>Titulo del video</p>
-						</div>
-						<div class="col s6">
-							<form>
-								<p style="margin: 0;">
-									<label>
-                      <input type="checkbox"/>
-                      <span>Visto</span>
-                    </label>
-								</p>
-							</form>
-						</div>
-						<div class="col s6">
-							<span class="right">00:00</span>
-						</div>
-					</div>
-				</li>
-				<li class="collection-item">
-					<div class="row">
-						<div class="col s1">
-							<p>1</p>
-						</div>
-						<div class="col s11">
-							<p>Titulo del video</p>
-						</div>
-						<div class="col s6">
-							<form>
-								<p style="margin: 0;">
-									<label>
-                      <input type="checkbox"/>
-                      <span>Visto</span>
-                    </label>
-								</p>
-							</form>
-						</div>
-						<div class="col s6">
-							<span class="right">00:00</span>
-						</div>
-					</div>
-				</li>
-
-
-
-			<?php for($i = 1; $i < count($clases); $i++): ?>
+			<?php for($i = 0; $i < count($clases); $i++): ?>
 			<li class="collection-item">
 				<div class="row">
 					<div class="col s1">
 						<p>
-							<?php echo $i; ?>
+							<?php echo $i+1; ?>
 						</p>
 					</div>
 					<div class="col s11">
@@ -178,7 +81,7 @@ include_once("views/header.php") ?>
 						</form>
 					</div>
 					<div class="col s6">
-						<span class="right"><?php echo $clases[$i]['duracion']; ?></span>
+						<span class="right"><?php echo toReadableTime($clases[$i]['duracion']); ?></span>
 					</div>
 				</div>
 			</li>
