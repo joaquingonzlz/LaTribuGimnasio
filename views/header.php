@@ -20,6 +20,8 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo $title; ?></title>
+	<meta name="description" content="Centro de entrenamiento - Gimnasio La Tribu - Olavarria"/>
+	<meta name="keywords" content="gimnasio, la tribu, olavarria, tribu"/>
 	<link rel="stylesheet" href="/css/materialize.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="/js/materialize.min.js"></script>

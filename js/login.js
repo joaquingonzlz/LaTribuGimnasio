@@ -1,18 +1,12 @@
 import { enviarPeticion as xhr } from "./fetch.js";
 import { getDatos } from "./formularios.js";
+import { mostrarMensaje } from "./mensajes.js";
 
 const sendLoginInfo = async() => {
 	const loginForm = document.getElementById("login-form"),
 		fd = getDatos(loginForm);
 	const res = await xhr("login.php", fd);
-	if (res.error) mostrarError(res.error);
-	else location.href = '/';
-}
-
-const mostrarError = (error) => {
-	const errbx = document.getElementById('error-msg');
-	errbx.classList.add('active');
-	errbx.innerText = error;
+	await mostrarMensaje(res.error, () => { location.href = '/' }, true);
 }
 
 document.addEventListener("DOMContentLoaded", (evt) => {

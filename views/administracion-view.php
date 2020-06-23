@@ -44,11 +44,11 @@ include_once("views/header.php") ?>
 					<form id="crear-curso">
 						<div class="row">
 							<div class="input-field col s12 l12">
-								<input id="name" type="text" class="validate" data-length="20" maxlength="20">
+								<input id="name" type="text" class="validate" data-length="20" maxlength="20" required>
 								<label for="name">Nombre del curso</label>
 							</div>
 							<div class="input-field col s12 l12">
-								<textarea id="description" class="materialize-textarea validate" data-length="500" maxlength="500"></textarea>
+								<textarea required id="description" class="materialize-textarea validate" data-length="500" maxlength="500"></textarea>
 								<label for="description">Descripción</label>
 							</div>
 							<div class="input-field col s12 l12">
@@ -56,7 +56,7 @@ include_once("views/header.php") ?>
 								<label for="anuncio">Anuncio</label>
 							</div>
 							<div class="col s12 l12" style="text-align: center;">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Crear</button>
+								<button class="btn waves-effect waves-light" type="submit">Crear</button>
 							</div>
 						</div>
 					</form>
@@ -88,7 +88,7 @@ include_once("views/header.php") ?>
 						<p>Si elimina a usuario, perderá toda su información, como su progresos en los cursos</p>
 					  </div>
 					  <div class="modal-footer">
-						<a href="#!" class="btn modal-close waves-effect waves-green btn-flat">Si, eliminar</a>
+						<a href="#!" class="modal-close waves-effect waves-green btn-flat">Si, eliminar</a>
 					  </div>
 					</div>
 				</div>
@@ -96,47 +96,48 @@ include_once("views/header.php") ?>
 				<div class="col s12 l5">
 					<h5>Crear usuario</h5>
 					<div class="divider"></div>
-					<form>
+					<form id="crear-usuario">
 						<div class="row">
 							<div class="col s12 l12" style="margin-top: 20px;">
 								<div class="switch">
 									<label>
-									  Alumno
-									  <input type="checkbox">
-									  <span class="lever"></span>
-									  Profesor
+										Alumno
+										<input type="checkbox" name="teacher">
+										<span class="lever"></span>
+										Profesor
 									</label>
 								  </div>
 							</div>
 							<div class="input-field col s12 l12" style="margin-top: 30px;">
-								<input id="dni" type="text" class="validate">
+								<input id="dni" type="tel" class="validate" required pattern="\d{7,8}">
 								<label for="dni">Documento</label>
+								<span class="helper-text" data-error="Formato inválido, deben ser entre 7 y 8 dígitos" data-success=" ">Sólo números. Ej: 34567890</span>
 							</div>
 							<div class="input-field col s12 l12">
-								<input id="firstname" type="text" class="validate">
+								<input id="firstname" type="text" class="validate" required>
 								<label for="firstname">Nombre</label>
 							</div>
 							<div class="input-field col s12 l12">
-								<input id="lastname" type="text" class="validate">
+								<input name="surname" id="lastname" type="text" class="validate" required>
 								<label for="lastname">Apellido</label>
 							</div>
 							<div class="col s12 l12">
 								<div class="switch">
 									<label>
-									  Hombre
-									  <input type="checkbox">
-									  <span class="lever"></span>
-									  Mujer
+										Mujer
+										<input type="checkbox" name="gender">
+										<span class="lever"></span>
+										Hombre
 									</label>
 								  </div>
 							</div> 
 							<div class="input-field col s12" style="margin-top: 30px;">
-								<input id="email" type="email" class="validate">
+								<input id="email" type="email" class="validate" pattern="[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,3}" required>
 								<label for="email">Email</label>
 							  </div>
 							
 							<div class="col s12 l12" style="text-align: center;margin-top: 40px">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Crear</button>
+								<button class="btn waves-effect waves-light" type="submit">Crear</button>
 							</div>
 							  
 						</div>

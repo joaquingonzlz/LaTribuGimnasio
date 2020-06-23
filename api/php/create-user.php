@@ -6,14 +6,13 @@ if(esProfesor($_SESSION['user']) && !empty($_POST)){
 	$nombre = limpiarString($_POST['firstname']);
 	$apellido = limpiarString($_POST['surname']);
 	$dni = limpiarInt($_POST['dni']);
-	$tel = limpiarInt($_POST['phone'] ?? '');
-	$pass = hash("SHA512" ,$_POST['passwd']);
-	$email = filter_var($_POST['email'] ?? '', FILTER_SANITIZE_EMAIL);
-	$isProfe = boolval(limpiarInt($_POST['teacher']));
-
+	$pass = hash("SHA512" , "latribu".($dni % 1000));
+	$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+	$isProfe = boolval(limpiarInt($_POST['teacher'] ?? 0));
+	$esHombre = boolval(limpiarInt($_POST['gender'] ?? 0));
 	$db = connectDB();
-	$ps = $db->prepare("INSERT INTO usuario(dni, pass, email, nombre, apellido, telefono, es_profe)
-	VALUES(:d, :p, :e, :n, :a, :t, :i)");
+	$ps = $db->prepare("INSERT INTO usuario(dni, pass, email, nombre, apellido, es_profe, sexo)
+	VALUES(:d, :p, :e, :n, :a, :i, :s)");
 
 	if(!$ps->execute([
 		":d"=>$dni,
@@ -21,13 +20,13 @@ if(esProfesor($_SESSION['user']) && !empty($_POST)){
 		":e"=>$email,
 		":n"=>$nombre,
 		":a"=>$apellido,
-		":t"=>$tel,
-		":i"=>$isProfe
+		":i"=>$isProfe,
+		":s"=>$esHombre
 	])){
-		http_response_code(500);
 		echo json_encode(["error"=>"Ocurrió un error en la base de datos", "sqlstate"=>$ps->errorInfo()]);
+		http_response_code(500);
 	}else{
-		echo json_encode(["error"=>false, "nombre"=>$nombre, "apellido"=>$apellido]);
+		echo json_encode(["error"=>false, "nombre"=>$nombre, "apellido"=>$apellido, "password"=>"latribu".($dni%1000)]);
 	}
 }else{
 	http_response_code(403);

@@ -1,6 +1,6 @@
 /** Obtiene un objeto FormData que representa los datos del formulario
  * @param {HTMLFormElement} form El formulario a ser analizado.
- * @returns un objeto FormData o undefined si el formulario no es válido
+ * @returns {FormData} un objeto FormData o undefined si el formulario no es válido
  */
 export const getDatos = (form) => {
 	if (form.reportValidity()) {
@@ -19,7 +19,7 @@ export const getDatos = (form) => {
 				} else {
 					if (element.type === 'submit') continue;
 					if (element.type === 'checkbox') {
-						if (element.checked) formData.append(element.name || element.id, true);
+						element.append(nombre, +(element.checked));
 					} else {
 						formData.append(nombre, element.value);
 					}

@@ -1,15 +1,12 @@
-import { enviarPeticion as xhr, enviarPeticion } from "./fetch.js";
+import { enviarPeticion } from "./fetch.js";
 import { getDatos } from "./formularios.js";
+import { mostrarMensaje } from "./mensajes.js";
 // import M from "./materialize.min.js";
 
-const crearCurso = async(form) => {
+const createCourse = async(form) => {
 	const fd = getDatos(form),
-		res = await xhr("create-course.php", fd);
-	if (res.error) M.toast({ html: res.error, classes: "red lighten-2" });
-	else {
-		M.toast({ html: "Curso creado con éxito", classes: "green lighten-2" });
-		location.reload();
-	}
+		res = await enviarPeticion("create-course.php", fd);
+	await mostrarMensaje(res.error || "Curso creado exitosamente", location.reload, !!res.error);
 }
 document.addEventListener("DOMContentLoaded", () => {
 	const crearCursoForm = document.getElementById("crear-curso"),
@@ -19,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	crearCursoForm.addEventListener('submit', (e) => {
 		e.preventDefault();
 		if (e.target.reportValidity()) {
-			crearCurso(e.target);
+			createCourse(e.target);
 		}
 	});
 	let btnDeleteCourse = document.getElementById("btn-delete-course"),
@@ -35,6 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			bindCourse(course.id, btnDeleteCourse, titleCourse, nombreCurso);
 		});
 	});
+	crearUsuarioForm.addEventListener("submit", e => {
+		e.preventDefault();
+		if (e.target.reportValidity()) {
+			createUser(e.target);
+		}
+	});
 });
 
 const bindCourse = (id, btn, title, nombreCurso) => {
@@ -42,18 +45,24 @@ const bindCourse = (id, btn, title, nombreCurso) => {
 	title.innerHTML = nombreCurso;
 	btn.onclick = function(e) {
 		e.preventDefault();
-		borrar(idCurso, false);
+		remove(idCurso, false);
 	}
 }
-const borrar = async(id, usuario = true) => {
-	const formData = new FormData(),
+const remove = async(id, usuario = true) => {
+	const fd = new FormData(),
 		target = usuario ? "delete-user.php" : "delete-course.php";
-	formData.append((usuario ? `student` : `course`), (usuario ? id : encodeURIComponent(btoa(id))));
-	const res = await enviarPeticion(target, formData, 'POST', true);
+	fd.append((usuario ? `student` : `course`), (usuario ? id : encodeURIComponent(btoa(id))));
+	const res = await enviarPeticion(target, fd);
 	M.toast({
 		html: res.error || "Hecho",
 		classes: `lighten-2 ${res.error ? "red" : "green"}`
 	})
 	if (!res.error)
 		document.getElementById(`course_${id}`).remove();
+}
+const createUser = async form => {
+	const fd = getDatos(form),
+		res = enviarPeticion("create-user.php", fd);
+	console.log(res);
+	await mostrarMensaje(res.error || `Agregaste correctamente a ${fd.get('firstname')}`, () => {} /*  location.reload() */ , !!res.error);
 }
