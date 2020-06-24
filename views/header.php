@@ -3,7 +3,7 @@ $db = connectDB();
 $nombre = $db->query("SELECT nombre FROM usuario WHERE dni = $_SESSION[user]")->fetchColumn();
 $notificaciones = $db->query("SELECT c.anuncio, c.id, c.nombre, c.fecha_anuncio FROM curso c
 INNER JOIN participantes p ON (c.id = p.curso)
-WHERE p.anuncio = 0 AND p.estudiante = $_SESSION[user]")->fetchAll(PDO::FETCH_ASSOC);
+WHERE p.anuncio = 1 AND p.estudiante = $_SESSION[user]")->fetchAll(PDO::FETCH_ASSOC);
 $hayNot = count($notificaciones) > 0;
 $cursos = esProfesor($_SESSION['user']) ?
 $db->query("SELECT 0 as progreso, c.id, c.nombre, c.descripcion FROM curso c")->fetchAll(PDO::FETCH_ASSOC):
@@ -65,9 +65,11 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 				<li>
 					<a class="dropdown-trigger" href="#!" data-target="list-notification">
 						<i class="material-icons <?php if($hayNot) echo "right";?>">notifications</i>
-						<?php if($hayNot)
-							echo "<span data-badge-caption=\"Nuevas\" class=\"white-text badge new\">".count($notificaciones)."</span>"
-						?>
+						<?php if($hayNot){
+							echo "<span data-badge-caption=\"Nueva";
+							if(count($notificaciones) != 1) echo "s";
+							echo "\" class=\"white-text badge new\">".count($notificaciones)."</span>";
+						}?>
 					</a>
 				</li>
 				<li>

@@ -20,7 +20,7 @@ else{
 	} while (isset($_POST["part_$i"]));
 	$db = connectDB();
 	$db->exec("DELETE FROM participantes WHERE curso = $curso AND estudiante NOT IN ($dnis)");
-	if(!$db->query("INSERT INTO participantes(estudiante, curso) VALUES $values")){
+	if(!$db->query("INSERT IGNORE INTO participantes(estudiante, curso) VALUES $values")){
 		http_response_code(500);
 		echo json_encode(["error"=> "Ocurrió un error en la base de datos", "sqlstate"=>$db->errorInfo()]);
 	}else{

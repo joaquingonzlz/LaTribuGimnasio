@@ -24,7 +24,7 @@ else{
 		exit;
 	}
 	$clases = $ps->fetchAll(PDO::FETCH_ASSOC);
-	
+	$dni = $_SESSION['user'];
 	// Ver si cada clase fue vista por el alumno ingresado
 	if(!esProfesor($_SESSION['user'])){
 		$ultimo_visto = $db->query("SELECT ultimo_visto FROM participantes WHERE estudiante = $dni AND curso = $curso")->fetchColumn();

@@ -1,6 +1,6 @@
 <?php session_start();
 header("Content-type: application/json; utf=8");
-error_reporting(0);
+// error_reporting(0);
 require_once("functions.php");
 if(!isset($_SESSION['user'])) http_response_code(403);
 else if(empty($_POST) || !isset($_POST['course'])) http_response_code(404);
@@ -21,14 +21,15 @@ else{
 	}
 	if(isset($_POST['seen'])){
 		$seen = limpiarInt($_POST['seen']);
-		$class = getCourse($_POST['video']);
-		$updVistos = "UPDATE vistos SET visto = $seen WHERE estudiante = $user AND clase = :class";
+		$class = getCourse($_POST['class']);
+		$updVistos = "INSERT INTO vistos(estudiante, curso, clase, visto) VALUES (:user, $curso , :class, :seen)
+		ON DUPLICATE KEY UPDATE visto = :seen";
 
 		$db = connectDB();
-		$db->prepare($updVistos)->execute([':class'=>$class]);
-		$vistas = $db->query("SELECT COUNT(1) FROM vistos WHERE estudiante = $dni AND visto = 1 AND curso = $cur")->fetchColumn();
+		$db->prepare($updVistos)->execute([':class'=>$class, ':user'=>$user, ':seen'=>$seen]);
+		$vistas = $db->query("SELECT COUNT(1) FROM vistos WHERE estudiante = $user AND visto = 1 AND curso = $curso")->fetchColumn();
 		if($vistas === false) $vistas = 0;
-		$clases = $db->query("SELECT COUNT(1) FROM clase WHERE curso = $cur")->fetchColumn();
+		$clases = $db->query("SELECT COUNT(1) FROM clase WHERE curso = $curso")->fetchColumn();
 		$progreso = intdiv(100*$vistas, $clases);
 		if(!empty($upd)) $upd .= ", ";
 		$upd .= "progreso = :prg";

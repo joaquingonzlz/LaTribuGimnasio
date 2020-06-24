@@ -76,7 +76,7 @@ include_once("views/header.php") ?>
 					</a>
 					<div class="col s6">
 						<label class="secondary-content grey-text text-darken-4" style="float: none;">
-							<input data-class="<?php echo $clases[$i]['id']; ?>" type="checkbox" <?php if(isset($vistos) && $vistos[$i]['visto']) echo "checked" ?>>
+							<input data-class="<?php echo $clases[$i]['id']; ?>" type="checkbox" <?php if(isset($vistos[$i]) && $vistos[$i]['visto']) echo "checked" ?>>
 							<span>Visto</span>
 						</label>
 					</div>
