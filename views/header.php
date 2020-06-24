@@ -132,7 +132,7 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 					</div>
 				</div>
 			</a>
-			<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><i class="material-icons grey-text darken-1">clear</i></div>
+			<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><!--i class="material-icons grey-text darken-1">clear</i--></div>
 		</li>
 		<?php endforeach; ?>
 		<?php endif; ?>
@@ -226,9 +226,11 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 					<div class="collapsible-header">
 						<i class="material-icons ">notifications</i>
 						Notificaciones
-						<?php //if($hayNot)
-							echo "<span data-badge-caption=\"Nuevas\" class=\"white-text badge new left\">". 2/* count($notificaciones) */."</span>"
-						?>
+						<?php if($hayNot){
+							echo "<span data-badge-caption=\"Nueva";
+							if(count($notificaciones) > 1) echo "s";
+							echo "\" class=\"white-text badge new left\">". count($notificaciones)."</span>";
+						}?>
 					</div>
 					<div class="collapsible-body">
 						<ul>
@@ -251,7 +253,7 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 										</div>
 									</div>
 								</a>
-								<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><i class="material-icons grey-text darken-1">clear</i></div>
+								<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><!--i class="material-icons grey-text darken-1">clear</i--></div>
 							</li>	
 						<?php endforeach; ?>
 						</ul>

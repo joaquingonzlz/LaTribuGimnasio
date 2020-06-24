@@ -12,10 +12,11 @@ else{
 	$error = $error || ($db->exec("DELETE FROM participantes WHERE estudiante = $est") === false);
 	$error = $error || ($db->exec("DELETE FROM vistos WHERE estudiante = $est") === false);
 	$error = $error || ($db->exec("DELETE FROM estudiante WHERE dni = $est") === false);
+	$error = $error || ($db->exec("DELETE FROM profesor WHERE dni = $est") === false);
 	$error = $error || ($db->exec("DELETE FROM usuario WHERE dni = $est") === false);
 	if($error){
 		http_response_code(500);
-		echo json_encode(["error"=> "Ocurrió un error en la base de datos", "sqlstate"=>$ps->errorInfo()]);
+		echo json_encode(["error"=> "Ocurrió un error en la base de datos", "sqlstate"=>$db->errorInfo()]);
 	}else{
 		echo json_encode(["error"=>false]);
 	}
