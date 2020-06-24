@@ -6,7 +6,7 @@ const sendLoginInfo = async() => {
 	const loginForm = document.getElementById("login-form"),
 		fd = getDatos(loginForm);
 	const res = await xhr("login.php", fd);
-	await mostrarMensaje(res.error, () => { location.href = '/' }, true);
+	await mostrarMensaje(res.error || "Bienvenido a La Tribu", () => { location.href = '/' }, res.error);
 }
 
 document.addEventListener("DOMContentLoaded", (evt) => {
