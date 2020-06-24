@@ -64,7 +64,7 @@ include_once("views/header.php"); ?>
                 </form>
             </div>
             <div class="col s12 l6">
-                <div class="cotenedor-fila">
+                <div class="cotenedor-fila" style="max-height: 400px; overflow-y:auto;">
 					<?php foreach($clases as $c): ?>
                     <div class="row fila" id="<?php echo "clase_$c[id]"; ?>">
                         <div class="col s8 l10"><p class="truncate"><?php echo $c['titulo']; ?></p></div>
@@ -75,188 +75,48 @@ include_once("views/header.php"); ?>
                 </div>
             </div>
         </div>
-        <h5>Añadir ususarios</h5>
-        <div class="divider"></div>
-        <div class="row" style="margin-top: 20px !important;">
+        <div class="row" style="margin-top: 20px; min-height: 250px;">
             <div class="col s12 l6">
-
-              <div class="contenedor-fila" style="height: 600px !important; overflow: auto !important">
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-                <div class="row" style="margin: 0 !important;">
-                  <p>
-                    <label>
-                      <input type="checkbox" style="position: static">
-                      <span>Joaquin</span>
-                    </label>
-                  </p>
-                </div>
-              </div>
-
-              
-           
-              
-            <div class="col s12" style="text-align: center">
-              <a class="waves-effect waves-light btn">Confirmar</a>
-            </div>
-            </div>
-            <div class="col s12 l6" style="max-height: 600px !important; overflow: auto !important">
-              
-                <div class="row">
-                  <div class="col s12"><p  class="flow-text" style="line-height: 50px !important;text-align:center">Participantes inscriptos</p></div>
-                </div>
-                <div class="divider"></div>
-                <div class="row fila">
-                  <div class="col s10"><p style="line-height: 50px !important;text-align:center">Joaquin Gonzalez</p></div>
-                  <div class="col s2" style="display: flex; justify-content: center; align-items: center">
-                    <i class="material-icons teal-text text-lighten-1">delete</i> 
-                </div>
+				<div class="center"><h5>Añadir participantes</h5></div>
+				<div class="divider"></div>
+				<div id="list-usuarios" class="contenedor-fila" style="max-height: 400px; overflow: auto; margin-bottom: 20px;">
+					<?php foreach ($usuarios as $u): ?>
+					<div class="row" style="margin: 0;">
+					<p>
+						<label>
+							<input id="_<?php echo $u['dni']; ?>" type="checkbox" style="position: static">
+							<span><?php echo "$u[nombre] $u[apellido]"; ?></span>
+						</label>
+					</p>
+					</div>
+					<?php endforeach; ?>
                 </div>
             </div>
-        </div>
-
+            <div class="col s12 l6">
+				<div class="center"><h5>Participantes del curso</h5></div>
+				<div class="divider"></div>
+				<div id="list-participantes" class="contenedor-fila" style="max-height: 400px; overflow-y: auto; margin-bottom: 20px;">
+					<?php foreach($participantes as $p): ?>
+					<div class="row fila">
+						<div class="col s10"><p style="line-height: 50px; text-align:center">
+							<?php echo "$p[nombre] $p[apellido]" ?>
+						</p></div>
+						<div id="_<?php echo $p['dni']; ?>" data-user="<?php echo "$p[nombre] $p[apellido]"; ?>" class="col s2" style="display: flex; justify-content: center; align-items: center;">
+							<i style="cursor:pointer;" name="delete-participant" class="material-icons teal-text text-lighten-1">delete</i> 
+						</div>
+					</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 center bottom-sheet">
+				<div class="divider" style="margin-bottom: 20px;"></div>
+				<div id="confirmar-participantes" class="waves-effect waves-light btn">
+		            Confirmar cambios
+				</div>
+			</div>
+		</div>
     </div>
 
     <div id="editarcurso" class="modal">
