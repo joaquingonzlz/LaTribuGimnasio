@@ -12,7 +12,7 @@ include_once("views/header.php"); ?>
                   <i class="material-icons prefix">fitness_center</i>
                   <input id="nombrecurso" type="text" class="validate" value="<?php echo $datos_curso['nombre']; ?>">
                   <label for="nombrecurso">Nombre del curso</label>
-                </div>
+              </div>
 						<input required type="hidden" name=course value="<?php echo $datos_curso['id']; ?>">
               </div>
               <div class="row">
@@ -75,7 +75,187 @@ include_once("views/header.php"); ?>
                 </div>
             </div>
         </div>
-        
+        <h5>Añadir ususarios</h5>
+        <div class="divider"></div>
+        <div class="row" style="margin-top: 20px !important;">
+            <div class="col s12 l6">
+
+              <div class="contenedor-fila" style="height: 600px !important; overflow: auto !important">
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row" style="margin: 0 !important;">
+                  <p>
+                    <label>
+                      <input type="checkbox" style="position: static">
+                      <span>Joaquin</span>
+                    </label>
+                  </p>
+                </div>
+              </div>
+
+              
+           
+              
+            <div class="col s12" style="text-align: center">
+              <a class="waves-effect waves-light btn">Confirmar</a>
+            </div>
+            </div>
+            <div class="col s12 l6" style="max-height: 600px !important; overflow: auto !important">
+              
+                <div class="row">
+                  <div class="col s12"><p  class="flow-text" style="line-height: 50px !important;text-align:center">Participantes inscriptos</p></div>
+                </div>
+                <div class="divider"></div>
+                <div class="row fila">
+                  <div class="col s10"><p style="line-height: 50px !important;text-align:center">Joaquin Gonzalez</p></div>
+                  <div class="col s2" style="display: flex; justify-content: center; align-items: center">
+                    <i class="material-icons teal-text text-lighten-1">delete</i> 
+                </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
