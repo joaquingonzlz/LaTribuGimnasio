@@ -27,7 +27,7 @@ if(esProfesor($_SESSION['user']) && !empty($_POST)){
 		http_response_code(500);
 	}else{
 		echo json_encode(["error"=>false, "nombre"=>$nombre, "apellido"=>$apellido, "password"=>"latribu".($dni%1000)]);
-		if($isProfe){
+		if(!$isProfe){
 			$db->query("INSERT INTO estudiante(dni) VALUES ($dni)");
 		}else{
 			$db->query("INSERT INTO profesor(dni) VALUES($dni)");
