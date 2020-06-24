@@ -66,7 +66,7 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 					<a class="dropdown-trigger" href="#!" data-target="list-notification">
 						<i class="material-icons <?php if($hayNot) echo "right";?>">notifications</i>
 						<?php if($hayNot)
-							echo "<span class=\"white-text badge new\">".count($notificaciones)."</span>"
+							echo "<span data-badge-caption=\"Nuevas\" class=\"white-text badge new\">".count($notificaciones)."</span>"
 						?>
 					</a>
 				</li>
@@ -174,7 +174,7 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 		
 		.entrada .entrada-body {
 			padding: 10px;
-			width: 400px;
+			max-width: 400px;
 		}
 		
 		.entrada .entrada-body .contenido {
@@ -203,29 +203,84 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 				<img src="/img/logo.jpg" class="responsive-img">
 			</div>
 		</div>
-		<ul class="collapsible">
-			<li>
-				<div class="collapsible-header">
-					<i class="material-icons">account_circle</i>
-					<?php echo $nombre; ?>
-				</div>
-				<div class="collapsible-body">
-					<ul>
-						<?php if(esProfesor($_SESSION['user'])) 
-						echo '<li><a href="/administrar.php">Administrar sistema</a></li>'
-						?>
-						<li><a href="/cuenta.php">Mi perfil</a></li>
-						<li><a href="/logout.php">Cerrar sesión</a></li>
-					</ul>
-				</div>
-			</li>
-		</ul>
 		<li>
-			<a href="#">Notificaciones
-			<?php if($hayNot)
-				echo "<span class=\"white-text badge new\">".count($notificaciones)."</span>";
-			?>
-			</a>
+			<ul class="collapsible">
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons">account_circle</i>
+						<?php echo $nombre; ?>
+					</div>
+					<div class="collapsible-body">
+						<ul>
+							<?php if(esProfesor($_SESSION['user'])) 
+							echo '<li><a href="/administrar.php">Administrar sistema</a></li>'
+							?>
+							<li><a href="/cuenta.php">Mi perfil</a></li>
+							<li><a href="/logout.php">Cerrar sesión</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons ">notifications</i>
+						Notificaciones
+						<?php //if($hayNot)
+							echo "<span data-badge-caption=\"Nuevas\" class=\"white-text badge new left\">". 2/* count($notificaciones) */."</span>"
+						?>
+					</div>
+					<div class="collapsible-body">
+						<ul>
+						<?php foreach($notificaciones as $nt): ?>
+							<li>
+								<a href="<?php echo "/curso.php?course=".urlencode(base64_encode($nt['id'])); ?>">
+									<div class="entrada-imagen yellow"></div>
+									<div class="entrada-body black-text">
+										<p class="titulo"><?php echo $nt['nombre']; ?></p>
+										<p class="contenido"><?php echo $nt['anuncio']; ?></p>
+										<div style="padding-top: 10px">
+											<p class="left-align grey-text darken-1"><?php 
+											$fechaAnuncio = new DateTime("@$nt[fecha_anuncio]");
+											$dif = getDiferencia($hoy, $fechaAnuncio);
+											if($dif[0]){ echo $dif[0]." dia"; if($dif[0]!=1) echo "s";}
+											else if($dif[1]){ echo $dif[1]." hora"; if($dif[1]!=1) echo "s";}
+											else if($dif[2]) {echo $dif[2]." minuto"; if($dif[2]!=1) echo "s";}
+											else {echo $dif[3]." segundo"; if($dif[3]!=1) echo "s";}
+											?></p>
+										</div>
+									</div>
+								</a>
+								<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><i class="material-icons grey-text darken-1">clear</i></div>
+							</li>	
+						<?php endforeach; ?>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons">book</i>
+						Mis Cursos
+					</div>
+					<div class="collapsible-body">
+						<ul>
+							<?php foreach($cursos as $curso): ?>
+							<li class="entrada">
+								<a style="height: 100%;" href="<?php echo "/curso.php?course=".urlencode(base64_encode($curso['id'])); ?>">
+									<div class="entrada-body black-text">
+										<p class="titulo"><?php echo $curso['nombre']; ?></p>
+										<p class="contenido"><?php echo $curso['descripcion']; ?></p>
+									</div>
+									<div style="padding: 0 10px;">
+										<div class="progress">
+											<div class="determinate" style="width: <?php echo $curso['progreso']."%"; ?>"></div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="divider"></li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+				</li>
+			</ul>
 		</li>
-		<li><a href="#">Mis cursos</a></li>
 	</ul>
