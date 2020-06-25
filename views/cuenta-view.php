@@ -6,14 +6,14 @@ include_once("views/header.php"); ?>
             <h5>Datos personales</h5>
             <div class="divider"></div>
             <div class="row" style="margin-top: 20px !important">
-                <form class="col s12">
+                <form class="col s12" id="datos-usuario">
                   <div class="row">
                     <div class="input-field col s12 l6">
-                      <input id="first_name" type="text" class="validate" value="<?php echo $datos_personales['nombre'] ?? ''; ?>">
+                      <input name="firstanme" id="first_name" type="text" class="validate" value="<?php echo $datos_personales['nombre'] ?? ''; ?>">
                       <label for="first_name">Nombre</label>
                     </div>
                     <div class="input-field col s12 l6">
-                      <input id="last_name" type="text" class="validate" value="<?php echo $datos_personales['apellido'] ?? ''; ?>">
+                      <input name="surname" id="last_name" type="text" class="validate" value="<?php echo $datos_personales['apellido'] ?? ''; ?>">
                       <label for="last_name">Apellido</label>
                     </div>
                   </div>
@@ -32,7 +32,7 @@ include_once("views/header.php"); ?>
                   </div>
                   <div class="row">
                     <div class="col s12" style="text-align: center;">
-                        <button onclick="M.toast({html: 'Cambios guardados'})" class="btn waves-effect waves-light center" type="submit" name="action">
+                        <button class="btn waves-effect waves-light center" type="submit" name="action">
                             Guardar cambios
                         </button>
                     </div>
@@ -45,20 +45,20 @@ include_once("views/header.php"); ?>
         <div class="row" style="margin-top: 20px !important">
           <form>
             <div class="input-field col s12 l6">
-                <input id="passwordactual" type="password" class="validate">
+                <input name="current" id="passwordactual" type="password" class="validate">
                 <label for="passwordactual">Contraseña actual</label>
               </div>
             <div class="input-field col s12 l6">
-                <input id="nuevapassword" type="password" class="validate">
+                <input name="password" id="nuevapassword" type="password" class="validate">
                 <label for="nuevapassword">Nueva contraseña</label>
             </div>
             <div class="input-field col s12 l6">
-                <input id="confirmpassword" type="password" class="validate">
+                <input name="confirm" id="confirmpassword" type="password" class="validate" data-success="Al actualizar la contraseña, debés volver a ingresar">
                 <label for="confirmpassword">Confirme nueva contraseña</label>
             </div>
             <div class="row">
                 <div class="col s12" style="text-align: center;margin-top: 30px">
-                    <button onclick="M.toast({html: 'Nueva contraseña guardada'})" class="btn waves-effect waves-light center" type="submit" name="action">
+                    <button class="btn waves-effect waves-light center" type="submit" name="action">
                         Guardar contraseña
                     </button>
                 </div>
@@ -90,6 +90,7 @@ include_once("views/header.php"); ?>
 	});
 
 </script>
+<script src="/js/cuenta.js" type="module"></script>
 </body>
 
 </html>

@@ -12,6 +12,6 @@ export const mostrarMensaje = async(msj, cb, error = false) => {
 			error ? "red" : "green"
 		}`
 	});
-	if (!error)
+	if (!error && cb !== null)
 		setTimeout(cb, 1000);
 }
