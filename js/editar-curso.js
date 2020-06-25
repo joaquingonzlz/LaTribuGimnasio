@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		e.preventDefault();
 		createClass(e.target);
 	});
+	document.getElementById("form-edit-course").addEventListener("submit", e => {
+		e.preventDefault();
+		editCourse(e.target);
+	})
 	const moveUser = e => {
 		let nombre = e.target.nextElementSibling.innerText,
 			dni = e.target.id,
@@ -39,6 +43,27 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	}
 	document.getElementById("confirmar-participantes")
 		.addEventListener('click', e => enviarParticipantes(e, listaParticipantes));
+
+	let btnEditarClases = document.querySelectorAll('a.modal-trigger');
+	for (const btn of btnEditarClases) {
+		let clase = btn.parentElement;
+		while (!clase.classList.contains("row")) clase = clase.parentElement;
+		if (btn.getAttribute('href') == "#editarcurso") {
+			btn.addEventListener('click', e => {
+				getClassInfo(clase.id.substr('6'));
+			})
+		} else {
+			btn.addEventListener('click', e => {
+				deleteClass(btn.getAttribute('data-class'), btn.getAttribute('data-title'));
+			});
+		}
+	}
+	document.getElementById('form-edit-class').addEventListener('submit', async e => {
+		e.preventDefault();
+		const _fd = getDatos(e.target),
+			res = await enviarPeticion("update-class.php", _fd);
+		mostrarMensaje(res.error || "Actualizaste la clase!", () => location.reload(), !!res.error);
+	});
 })
 
 /** @param {HTMLFormElement} form */
@@ -96,4 +121,38 @@ const enviarParticipantes = (e, participants) => {
 		fd.append(`part_${pos}`, item.id.substr(1));
 	});
 	enviarPeticion("create-participants.php", fd);
+}
+
+const editCourse = async form => {
+	const fd = getDatos(form),
+		res = await enviarPeticion("update-course.php", fd);
+	mostrarMensaje(res.error || "Información actualizada correctamente", null, !!res.error);
+}
+
+const getClassInfo = async _class => {
+	let fd = new FormData();
+	fd.append('class', _class);
+	const courseInfo = await enviarPeticion("get-class-info.php", fd),
+		classForm = document.getElementById('form-edit-class');
+	classForm.class.value = _class;
+	classForm.title.value = courseInfo.titulo;
+	classForm.video.value = `https://www.youtube.com/watch?v=${courseInfo.video}`;
+	classForm.date.value = courseInfo.fecha;
+	classForm.title.labels[0].classList.add('active');
+	classForm.video.labels[0].classList.add('active');
+	classForm.date.labels[0].classList.add('active');
+}
+
+const deleteClass = id => {
+	document.getElementById('eliminarcurso')
+		.querySelector('a.modal-close')
+		.onclick = async e => {
+			e.preventDefault();
+			const fd = new FormData();
+			fd.append('class', id);
+			const res = await enviarPeticion('delete-class.php', fd);
+			mostrarMensaje(
+				res.error || 'Eliminaste la clase', () => location.reload(), !!res.error
+			);
+		}
 }
