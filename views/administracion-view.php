@@ -72,11 +72,14 @@ include_once("views/header.php") ?>
 					<div class="divider"></div>
 					<div class="cotenedor-fila" style="max-height: 1000px;overflow: auto;">
 						<?php foreach($users as $u): ?>
+							<?php if(in_array($u['dni'], ['95327835', '40092235', $_SESSION['user']])) continue; ?>
 						<div class="row fila" id="<?php echo "user_".$u["dni"]; ?>">
-							<div class="col s1 l1"><p class="truncate"><?php $u['es_profe'] ? 'P':'A'; ?></p></div>
+							<div class="col s1 l1"><p class="truncate"><?php echo $u['es_profe'] ? 'P':'A'; ?></p></div>
 							<div class="col s3 l2 "><p class="truncate"><?php echo $u['dni']; ?></p></div>
 							<div class="col s6 l8 "><p class="truncate"><?php echo "$u[nombre] $u[apellido]"; ?></p></div>
-							<div class="col s2 l1 iconos" ><a class="modal-trigger" href="#modal2"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
+							<div class="col s2 l1 iconos" >
+							<a class="modal-trigger" href="#modal2"><i class="material-icons teal-text text-lighten-1">delete</i></a>
+							</div>
 						</div>
 						<?php endforeach; ?>
 					</div>

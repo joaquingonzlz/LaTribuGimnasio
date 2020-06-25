@@ -6,7 +6,7 @@ export const getDatos = (form) => {
 	if (form.reportValidity()) {
 		const formData = new FormData();
 		for (const element of form) {
-			const nombre = element.name || element.id;
+			const nombre = element.getAttribute('name') || element.id;
 			if (element.checkValidity() && nombre) {
 				if (element.classList.contains("datepicker")) {
 					let date = element.M_Datepicker.date;
@@ -19,7 +19,7 @@ export const getDatos = (form) => {
 				} else {
 					if (element.type === 'submit') continue;
 					if (element.type === 'checkbox') {
-						element.append(nombre, +(element.checked));
+						formData.append(nombre, +(element.checked));
 					} else {
 						formData.append(nombre, element.value);
 					}

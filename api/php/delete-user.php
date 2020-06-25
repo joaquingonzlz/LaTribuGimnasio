@@ -5,6 +5,7 @@ require_once("functions.php");
 
 if(!esProfesor($_SESSION['user'])) http_response_code(403);
 else if(empty($_POST)) http_response_code(404);
+else if($_SESSION['user'] == $_POST['student']) echo json_encode(["error"=>"No te puedes eliminar a tí mismo."]);
 else{
 	$est = limpiarInt($_POST['student']);
 	$db = connectDB();
