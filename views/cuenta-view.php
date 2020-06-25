@@ -45,18 +45,23 @@ include_once("views/header.php"); ?>
         <div class="row" style="margin-top: 20px !important">
           <form>
             <div class="input-field col s12 l6">
-                <input name="current" id="passwordactual" type="password" class="validate">
+				<input type="text" name="username" autocomplete="username" readonly value="<?php echo $_SESSION['user']; ?>">
+                <input name="current" id="passwordactual" type="password" class="validate" autocomplete="current-password">
                 <label for="passwordactual">Contraseña actual</label>
               </div>
             <div class="input-field col s12 l6">
-                <input name="password" id="nuevapassword" type="password" class="validate">
+                <input name="password" id="nuevapassword" type="password" class="validate" autocomplete="new-password">
                 <label for="nuevapassword">Nueva contraseña</label>
             </div>
             <div class="input-field col s12 l6">
-                <input name="confirm" id="confirmpassword" type="password" class="validate" data-success="Al actualizar la contraseña, debés volver a ingresar">
-                <label for="confirmpassword">Confirme nueva contraseña</label>
+                <input name="confirm" id="confirmpassword" type="password" class="validate" autocomplete="new-password">
+				<label for="confirmpassword">Confirme nueva contraseña</label>
             </div>
             <div class="row">
+				<div class="col s12 center">
+					<div class="divider" style="margin: 20px 0"></div>
+					<span class="grey-text">Al actualizar la contraseña, debés volver a ingresar</span>
+				</div>
                 <div class="col s12" style="text-align: center;margin-top: 30px">
                     <button class="btn waves-effect waves-light center" type="submit" name="action">
                         Guardar contraseña

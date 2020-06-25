@@ -46,7 +46,7 @@ function generarImagen($archivo): string{
 * y gracias a Dios youtube provee información sobre el video, porque sino estamos sonados. */
 function getDuracion(string $video) : string{
 	//Primero usamos la URL que provee youtube para obtener info del video
-	$url = "https://www.youtube.com/get_video_info?video_id=$video";
+	$url = "https://www.youtube.com/get_video_info?html5=1&video_id=$video";
 	//Creamos una sesion cURL (See URL) y seteamos unos parámetros necesarios
 	$ch = curl_init();
 	curl_setopt($ch,CURLOPT_URL, $url);
@@ -60,8 +60,14 @@ function getDuracion(string $video) : string{
 	$resultado = urldecode($resultado);
 	$str = [];
 	preg_match("/\\\"approxDurationMs\\\":\\\"\d+\\\"/", $resultado, $str);
+	$seconds = false;
+	if(empty($str)){
+		preg_match("/\"lengthSeconds\":\"\d+\"/", $resultado, $str);
+		$seconds = true;
+	}
 	preg_match("/\d+/", $str[0], $str);
-	return $str[0];
+	$return = $str[0];
+	return $seconds ? $return.'000' : $return;
 }
 function getYoutubeID(string $url){
 	//Separa por / por si es una url acortada "https://youtu.be/videoID" => [https: | youtu.be | videoID]
