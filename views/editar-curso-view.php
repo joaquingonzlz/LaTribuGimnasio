@@ -10,7 +10,7 @@ include_once("views/header.php"); ?>
             <div class="row" style="margin-top: 20px;">
                 <div class="input-field col s12 l6">
                   <i class="material-icons prefix">fitness_center</i>
-                  <input id="nombrecurso" type="text" value="<?php echo $datos_curso['nombre']; ?>" readonly> <!--class="validate"-->
+                  <input id="nombrecurso" type="text" value="<?php echo $datos_curso['nombre']; ?>" class="validate">
                   <label for="nombrecurso">Nombre del curso</label>
               </div>
 						<input required type="hidden" name=course value="<?php echo $datos_curso['id']; ?>">
@@ -18,7 +18,7 @@ include_once("views/header.php"); ?>
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">mode_edit</i>
-                  <textarea readonly id="descripcion" class="materialize-textarea"><?php echo $datos_curso['descripcion'] ?? ''; ?></textarea>
+                  <textarea id="descripcion" class="materialize-textarea"><?php echo $datos_curso['descripcion'] ?? ''; ?></textarea>
                   <label for="descripcion">Descripción</label>
                   <span class="helper-text">La nueva descripción reemplazará la descripción actual</span>
                 </div>
@@ -26,13 +26,13 @@ include_once("views/header.php"); ?>
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">mode_edit</i>
-                  <textarea readonly id="anuncio" class="materialize-textarea"><?php echo $datos_curso['anuncio'] ?? ''; ?></textarea>
+                  <textarea id="anuncio" class="materialize-textarea"><?php echo $datos_curso['anuncio'] ?? ''; ?></textarea>
                   <label for="anuncio">Anuncio</label>
                   <span class="helper-text">El nuevo anuncio reemplazará el anuncio actual</span>
                 </div>
               </div>
               <div class="row" style="text-align: center;margin-bottom: 40px !important;">
-                <!-- <button class="btn waves-effect waves-light" type="submit" name="action">Guardar cambios</button> -->
+                <button class="btn waves-effect waves-light" type="submit" name="action">Guardar cambios</button>
               </div>
         </form>
         <h5>Añadir clases</h5>
@@ -68,8 +68,8 @@ include_once("views/header.php"); ?>
 					<?php foreach($clases as $c): ?>
                     <div class="row fila" id="<?php echo "clase_$c[id]"; ?>">
                         <div class="col s8 l10"><p class="truncate"><?php echo $c['titulo']; ?></p></div>
-                        <!-- <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#editarcurso"><i class="material-icons teal-text text-lighten-1">edit</i></a></div> -->
-                        <!-- <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#eliminarcurso"><i class="material-icons teal-text text-lighten-1">delete</i></a></div> -->
+                        <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#editarcurso"><i class="material-icons teal-text text-lighten-1">edit</i></a></div>
+                        <div class="col s2 l1 iconos" style="height: 50px;"><a class="modal-trigger" href="#eliminarcurso"><i class="material-icons teal-text text-lighten-1">delete</i></a></div>
 					</div>
 					<?php endforeach; ?>
                 </div>

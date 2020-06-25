@@ -9,11 +9,11 @@ include_once("views/header.php"); ?>
                 <form class="col s12">
                   <div class="row">
                     <div class="input-field col s12 l6">
-                      <!--class="validate"--><input readonly id="first_name" type="text" value="<?php echo $datos_personales['nombre'] ?? ''; ?>">
+                      <input id="first_name" type="text" class="validate" value="<?php echo $datos_personales['nombre'] ?? ''; ?>">
                       <label for="first_name">Nombre</label>
                     </div>
                     <div class="input-field col s12 l6">
-                      <!--class="validate"--><input readonly id="last_name" type="text" value="<?php echo $datos_personales['apellido'] ?? ''; ?>">
+                      <input id="last_name" type="text" class="validate" value="<?php echo $datos_personales['apellido'] ?? ''; ?>">
                       <label for="last_name">Apellido</label>
                     </div>
                   </div>
@@ -21,26 +21,26 @@ include_once("views/header.php"); ?>
                   <div class="row">
                     
                     <div class="input-field col s12 l6">
-                        <!--class="validate"--><input readonly id="email" type="email" value="<?php echo $datos_personales['email'] ?? ''; ?>">
+                        <input id="email" type="email" class="validate" value="<?php echo $datos_personales['email'] ?? ''; ?>">
                         <label for="email">Email</label>
                       </div>
                       <div class="input-field col s12 l6">
-                        <!--class="validate"--><input readonly id="phone" type="text" pattern="\d+" minlength="8" data-length="11"  value="<?php echo $datos_personales['telefono'] ?? ''; ?>">
+                        <input id="phone" type="text" class="validate" pattern="\d+" minlength="8" data-length="11"  value="<?php echo $datos_personales['telefono'] ?? ''; ?>">
                         <label for="phone">Telefono</label>
                         <span class="helper-text" data-error="Verifique el número" data-success="El formato es correcto">Sin 0 ni 15, Ejemplo: 2284 456789</span>
                       </div>
                   </div>
                   <div class="row">
                     <div class="col s12" style="text-align: center;">
-                        <!-- <button onclick="M.toast({html: 'Cambios guardados'})" class="btn waves-effect waves-light center" type="submit" name="action">
+                        <button onclick="M.toast({html: 'Cambios guardados'})" class="btn waves-effect waves-light center" type="submit" name="action">
                             Guardar cambios
-                        </button> -->
+                        </button>
                     </div>
                   </div>
                 </form>
               </div>    
         </div>
-        <!-- <h5>Cambiar contraseña</h5>
+        <h5>Cambiar contraseña</h5>
         <div class="divider"></div>
         <div class="row" style="margin-top: 20px !important">
           <form>
@@ -64,7 +64,7 @@ include_once("views/header.php"); ?>
                 </div>
               </div>
           </form> 
-        </div> -->
+        </div>
     </div>
 	<?php include_once("views/footer-view.php"); ?>
 <style>

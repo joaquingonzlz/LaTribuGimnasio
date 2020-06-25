@@ -132,7 +132,7 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 					</div>
 				</div>
 			</a>
-			<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><!--i class="material-icons grey-text darken-1">clear</i--></div>
+			<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><i class="material-icons grey-text darken-1">clear</i></div>
 		</li>
 		<?php endforeach; ?>
 		<?php endif; ?>
@@ -253,7 +253,7 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 										</div>
 									</div>
 								</a>
-								<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><!--i class="material-icons grey-text darken-1">clear</i--></div>
+								<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><i class="material-icons grey-text darken-1">clear</i></div>
 							</li>	
 						<?php endforeach; ?>
 						</ul>
