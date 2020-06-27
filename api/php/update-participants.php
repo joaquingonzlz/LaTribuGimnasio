@@ -10,8 +10,8 @@ else{
 	$curso = getCourse($_POST['course']);
 	$upd = '';
 	$argUpd = [':dni' => $user, ':cur'=>$curso];
-	if(isset($_POST['last-seen'])){
-		$video = $_POST['last-seen'];
+	if(isset($_POST['last_seen'])){
+		$video = $_POST['last_seen'];
 		$upd .= "ultimo_visto = :uv";
 		$argUpd[':uv'] = $video;
 	}
