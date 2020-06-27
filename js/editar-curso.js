@@ -116,12 +116,11 @@ const enviarParticipantes = (e, participants) => {
 	const fd = new FormData();
 	fd.append('course', location.search.split("=")[1]);
 	let items = participants.querySelectorAll("div[data-user]");
-	console.log(participants, items);
 	items.forEach((item, pos) => {
-		console.log(item);
 		fd.append(`part_${pos}`, item.id.substr(1));
 	});
-	enviarPeticion("create-participants.php", fd);
+	const res = await enviarPeticion("create-participants.php", fd);
+	mostrarMensaje(res.error || 'Actualizaste el listado de participantes!', null, !!res.error);
 }
 
 const parseHTML = str => {
