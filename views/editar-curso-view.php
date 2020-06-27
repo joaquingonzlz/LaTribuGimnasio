@@ -13,7 +13,7 @@ include_once("views/header.php"); ?>
                   <input name="name" id="nombrecurso" type="text" value="<?php echo $datos_curso['nombre']; ?>" class="validate">
                   <label for="nombrecurso">Nombre del curso</label>
               </div>
-						<input required type="hidden" name=course value="<?php echo $datos_curso['id']; ?>">
+						<input required type="hidden" name='curso' value="<?php echo $datos_curso['id']; ?>">
               </div>
               <div class="row">
                 <div class="input-field col s12">

@@ -82,14 +82,14 @@ const createClass = async form => {
  * @param {HTMLDivElement} participants
  * */
 const addParticipant = (dni, nombre, participants) => {
-	participants.innerHTML += `<div class="row fila">
+	participants.appendChild(parseHTML(`<div class="row fila">
 		<div class="col s10"><p style="line-height: 50px; text-align:center">
 			${nombre}
 		</p></div>
 		<div id="${dni}" data-user="${nombre}" class="col s2" style="display: flex; justify-content: center; align-items: center">
 			<i style="cursor:pointer;" name="delete-participant" class="material-icons teal-text text-lighten-1">delete</i> 
 		</div>
-	</div>`;
+	</div>`));
 }
 
 /**
@@ -98,18 +98,19 @@ const addParticipant = (dni, nombre, participants) => {
  * @param {HTMLDivElement} users
  * */
 const remParticipant = (dni, nombre, users) => {
-		users.innerHTML = `<div class="row" style="margin: 0;">
+	users.appendChild(parseHTML(`<div class="row" style="margin: 0;">
 		<p>
 			<label>
 				<input id="${dni}" type="checkbox" style="position: static">
 				<span>${nombre}</span>
 			</label>
 		</p>
-	</div>`;
-	}
-	/**@param {MouseEvent} e
-	 * @param {HTMLDivElement} participants
-	 */
+	</div>`));
+}
+
+/**@param {MouseEvent} e
+ * @param {HTMLDivElement} participants
+ */
 const enviarParticipantes = (e, participants) => {
 	e.preventDefault();
 	const fd = new FormData();
@@ -121,6 +122,12 @@ const enviarParticipantes = (e, participants) => {
 		fd.append(`part_${pos}`, item.id.substr(1));
 	});
 	enviarPeticion("create-participants.php", fd);
+}
+
+const parseHTML = str => {
+	const tmp = document.implementation.createHTMLDocument()
+	tmp.body.innerHTML = str
+	return tmp.body.children[0];
 }
 
 const editCourse = async form => {
