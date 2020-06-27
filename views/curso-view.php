@@ -118,4 +118,4 @@ include_once("views/header.php") ?>
 		let instance = M.Tabs.init(elems,{});
 	})
 </script>
-<script src="/js/curso.js" type="module"></script>
+<script src="/js/course.js" type="module"></script>

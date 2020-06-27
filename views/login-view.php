@@ -63,7 +63,7 @@
 
 	</div>
 	
-	<script src="/js/materialize.js"></script>
+	<script src="/js/materialize.min.js"></script>
 	<script type="module" src="/js/login.js"></script>
 </body>
 

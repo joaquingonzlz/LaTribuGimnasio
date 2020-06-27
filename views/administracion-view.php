@@ -182,6 +182,6 @@ include_once("views/header.php") ?>
 		modals = M.Modal.init(modalElems, {});
 	})
 </script>
-<script src="/js/administrar.js" type="module"></script>
+<script src="/js/manage.js" type="module"></script>
 </body>
 </html>

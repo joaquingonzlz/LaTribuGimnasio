@@ -181,6 +181,6 @@ include_once("views/header.php"); ?>
 			});
         });
 	</script>
-	<script src="/js/editar-curso.js" type="module"></script>
+	<script src="/js/edit-course.js" type="module"></script>
 </body>
 </html>

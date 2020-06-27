@@ -95,7 +95,7 @@ include_once("views/header.php"); ?>
 	});
 
 </script>
-<script src="/js/cuenta.js" type="module"></script>
+<script src="/js/account.js" type="module"></script>
 </body>
 
 </html>
