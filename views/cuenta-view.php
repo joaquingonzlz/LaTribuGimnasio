@@ -6,14 +6,14 @@ include_once("views/header.php"); ?>
             <h5>Datos personales</h5>
             <div class="divider"></div>
             <div class="row" style="margin-top: 20px !important">
-                <form class="col s12">
+                <form class="col s12" id="datos-usuario">
                   <div class="row">
                     <div class="input-field col s12 l6">
-                      <!--class="validate"--><input readonly id="first_name" type="text" value="<?php echo $datos_personales['nombre'] ?? ''; ?>">
+                      <input name="firstanme" id="first_name" type="text" class="validate" value="<?php echo $datos_personales['nombre'] ?? ''; ?>">
                       <label for="first_name">Nombre</label>
                     </div>
                     <div class="input-field col s12 l6">
-                      <!--class="validate"--><input readonly id="last_name" type="text" value="<?php echo $datos_personales['apellido'] ?? ''; ?>">
+                      <input name="surname" id="last_name" type="text" class="validate" value="<?php echo $datos_personales['apellido'] ?? ''; ?>">
                       <label for="last_name">Apellido</label>
                     </div>
                   </div>
@@ -21,50 +21,55 @@ include_once("views/header.php"); ?>
                   <div class="row">
                     
                     <div class="input-field col s12 l6">
-                        <!--class="validate"--><input readonly id="email" type="email" value="<?php echo $datos_personales['email'] ?? ''; ?>">
+                        <input id="email" type="email" class="validate" value="<?php echo $datos_personales['email'] ?? ''; ?>">
                         <label for="email">Email</label>
                       </div>
                       <div class="input-field col s12 l6">
-                        <!--class="validate"--><input readonly id="phone" type="text" pattern="\d+" minlength="8" data-length="11"  value="<?php echo $datos_personales['telefono'] ?? ''; ?>">
+                        <input id="phone" type="text" class="validate" pattern="\d+" minlength="8" data-length="11"  value="<?php echo $datos_personales['telefono'] ?? ''; ?>">
                         <label for="phone">Telefono</label>
                         <span class="helper-text" data-error="Verifique el número" data-success="El formato es correcto">Sin 0 ni 15, Ejemplo: 2284 456789</span>
                       </div>
                   </div>
                   <div class="row">
                     <div class="col s12" style="text-align: center;">
-                        <!-- <button onclick="M.toast({html: 'Cambios guardados'})" class="btn waves-effect waves-light center" type="submit" name="action">
+                        <button class="btn waves-effect waves-light center" type="submit" name="action">
                             Guardar cambios
-                        </button> -->
+                        </button>
                     </div>
                   </div>
                 </form>
               </div>    
         </div>
-        <!-- <h5>Cambiar contraseña</h5>
+        <h5>Cambiar contraseña</h5>
         <div class="divider"></div>
         <div class="row" style="margin-top: 20px !important">
           <form>
             <div class="input-field col s12 l6">
-                <input id="passwordactual" type="password" class="validate">
+				<input type="text" name="username" autocomplete="username" readonly value="<?php echo $_SESSION['user']; ?>">
+                <input name="current" id="passwordactual" type="password" class="validate" autocomplete="current-password">
                 <label for="passwordactual">Contraseña actual</label>
               </div>
             <div class="input-field col s12 l6">
-                <input id="nuevapassword" type="password" class="validate">
+                <input name="password" id="nuevapassword" type="password" class="validate" autocomplete="new-password">
                 <label for="nuevapassword">Nueva contraseña</label>
             </div>
             <div class="input-field col s12 l6">
-                <input id="confirmpassword" type="password" class="validate">
-                <label for="confirmpassword">Confirme nueva contraseña</label>
+                <input name="confirm" id="confirmpassword" type="password" class="validate" autocomplete="new-password">
+				<label for="confirmpassword">Confirme nueva contraseña</label>
             </div>
             <div class="row">
+				<div class="col s12 center">
+					<div class="divider" style="margin: 20px 0"></div>
+					<span class="grey-text">Al actualizar la contraseña, debés volver a ingresar</span>
+				</div>
                 <div class="col s12" style="text-align: center;margin-top: 30px">
-                    <button onclick="M.toast({html: 'Nueva contraseña guardada'})" class="btn waves-effect waves-light center" type="submit" name="action">
+                    <button class="btn waves-effect waves-light center" type="submit" name="action">
                         Guardar contraseña
                     </button>
                 </div>
               </div>
           </form> 
-        </div> -->
+        </div>
     </div>
 	<?php include_once("views/footer-view.php"); ?>
 <style>
@@ -90,6 +95,7 @@ include_once("views/header.php"); ?>
 	});
 
 </script>
+<script src="/js/cuenta.js" type="module"></script>
 </body>
 
 </html>

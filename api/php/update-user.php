@@ -1,6 +1,6 @@
 <?php session_start();
 header("Content-type: application/json; charset=utf-8");
-error_reporting(0);
+// error_reporting(0);
 require_once("functions.php");
 if(!isset($_SESSION['user'])) http_response_code(403);
 else if(!empty($_POST)){
@@ -40,8 +40,12 @@ else if(!empty($_POST)){
 	if(!empty($update)){
 		$db = connectDB();
 		$query = "UPDATE usuario SET $update WHERE dni = :user";
+		if(isset($_POST['current'])){
+			$query .= " AND pass = :password";
+			$argUpd[':password'] = hash("SHA512", $_POST['current']);
+		}
 		$ps = $db->prepare($query);
-		if(!$ps->execute([$argUpd])){
+		if(!$ps->execute($argUpd)){
 			http_response_code(500);
 			echo json_encode(["error"=>"Ocurrió un error en la base de datos", "sqlstate"=>$ps->errorInfo()]);
 		}else{

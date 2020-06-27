@@ -20,7 +20,7 @@ export const getDatos = (form) => {
 					if (element.type === 'submit') continue;
 					if (element.type === 'checkbox') {
 						formData.append(nombre, +(element.checked));
-					} else {
+					} else if (element.value.length > 0) {
 						formData.append(nombre, element.value);
 					}
 				}
