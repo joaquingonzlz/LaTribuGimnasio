@@ -111,7 +111,7 @@ const remParticipant = (dni, nombre, users) => {
 /**@param {MouseEvent} e
  * @param {HTMLDivElement} participants
  */
-const enviarParticipantes = (e, participants) => {
+const enviarParticipantes = async(e, participants) => {
 	e.preventDefault();
 	const fd = new FormData();
 	fd.append('course', location.search.split("=")[1]);

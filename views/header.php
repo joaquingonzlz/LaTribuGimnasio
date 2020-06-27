@@ -114,7 +114,7 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 		<?php $hoy = new DateTime();
 		foreach($notificaciones as $nt): ?>
 		<li class="divider"></li>
-		<li class="entrada">
+		<li class="entrada" id="<?php echo "header_not_$nt[id]"; ?>">
 			<a href="<?php echo "/curso.php?course=".urlencode(base64_encode($nt['id'])); ?>">
 				<div class="entrada-imagen yellow"></div>
 				<div class="entrada-body black-text">
@@ -132,7 +132,7 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 					</div>
 				</div>
 			</a>
-			<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><i class="material-icons grey-text darken-1">clear</i></div>
+			<div data-course="<?php echo $nt['id']; ?>" name="clear_nt" class="clear"><i class="material-icons grey-text darken-1">clear</i></div>
 		</li>
 		<?php endforeach; ?>
 		<?php endif; ?>
@@ -163,6 +163,7 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 		
 		.entrada>a {
 			padding: 0 !important;
+			height: 100% !important;
 		}
 		
 		.entrada>a:hover {
@@ -176,9 +177,12 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 		
 		.entrada .entrada-body {
 			padding: 10px;
+			width: 400px;
+		}
+		ul.sidenav .entrada .entrada-body{
+			width: 100%;
 			max-width: 400px;
 		}
-		
 		.entrada .entrada-body .contenido {
 			height: 40px;
 			overflow: hidden;
@@ -235,7 +239,7 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 					<div class="collapsible-body">
 						<ul>
 						<?php foreach($notificaciones as $nt): ?>
-							<li>
+							<li id="<?php echo "side_not_$nt[id]"; ?>" class="entrada">
 								<a href="<?php echo "/curso.php?course=".urlencode(base64_encode($nt['id'])); ?>">
 									<div class="entrada-imagen yellow"></div>
 									<div class="entrada-body black-text">
@@ -253,12 +257,13 @@ $db->query("SELECT p.progreso, c.id, c.nombre, c.descripcion
 										</div>
 									</div>
 								</a>
-								<div id="<?php echo "clear_nt_$nt[id]"; ?>" class="clear"><i class="material-icons grey-text darken-1">clear</i></div>
+								<div data-course="<?php echo $nt['id']; ?>" name="clear_nt" class="clear"><i class="material-icons grey-text darken-1">clear</i></div>
 							</li>	
 						<?php endforeach; ?>
 						</ul>
 					</div>
 				</li>
+				<script type="module" src="/js/notifications.js"></script>
 				<li>
 					<div class="collapsible-header">
 						<i class="material-icons">book</i>

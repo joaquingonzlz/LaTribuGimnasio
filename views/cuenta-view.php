@@ -45,7 +45,7 @@ include_once("views/header.php"); ?>
         <div class="row" style="margin-top: 20px !important">
           <form>
             <div class="input-field col s12 l6">
-				<input type="text" name="username" autocomplete="username" readonly value="<?php echo $_SESSION['user']; ?>">
+				<input type="hidden" name="username" autocomplete="username" readonly value="<?php echo $_SESSION['user']; ?>">
                 <input name="current" id="passwordactual" type="password" class="validate" autocomplete="current-password">
                 <label for="passwordactual">Contraseña actual</label>
               </div>
