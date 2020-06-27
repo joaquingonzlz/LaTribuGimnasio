@@ -44,9 +44,10 @@ function generarImagen($archivo): string{
 }
 /**Para obtener la duración del video, hay que hacer todo este quilombo, debido a que el video está en youtube
 * y gracias a Dios youtube provee información sobre el video, porque sino estamos sonados. */
-function getDuracion(string $video) : string{
+function getDuracion(string $video): int{
 	//Primero usamos la URL que provee youtube para obtener info del video
-	$url = "https://www.youtube.com/get_video_info?video_id=$video";
+	$api_key = 'AIzaSyCZZMv3gl1_KiJVvWMgvS-pYs9AotN8fsE';
+	$url = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${video}&key=${api_key}";
 	//Creamos una sesion cURL (See URL) y seteamos unos parámetros necesarios
 	$ch = curl_init();
 	curl_setopt($ch,CURLOPT_URL, $url);
@@ -57,11 +58,12 @@ function getDuracion(string $video) : string{
 	curl_close($ch);
 
 	//Decodifico toda la wea que retorna, y hago un grep para conseguir la porción de texto que me interesa (duración del video)
-	$resultado = urldecode($resultado);
-	$str = [];
-	preg_match("/\\\"approxDurationMs\\\":\\\"\d+\\\"/", $resultado, $str);
-	preg_match("/\d+/", $str[0], $str);
-	return $str[0];
+	$resultado = json_decode(urldecode($resultado));
+	$duracion = new DateInterval($resultado->items[0]->contentDetails->duration);
+	$milisegundos = ($duracion->h*3600+$duracion->i*60+$duracion->s)*1000;
+	// print_r($resultado);
+	// return $str[0];
+	return $milisegundos;
 }
 function getYoutubeID(string $url){
 	//Separa por / por si es una url acortada "https://youtu.be/videoID" => [https: | youtu.be | videoID]

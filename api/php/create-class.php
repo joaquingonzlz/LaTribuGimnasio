@@ -14,11 +14,12 @@ if(esProfesor($_SESSION['user'])){
 
 		$db = connectDB();
 		$ps = $db->prepare("INSERT INTO clase(titulo, curso, video, duracion, fecha)
-		VALUES (:tit, :cur, :vid, $duracion, $fecha)");
+		VALUES (:tit, :cur, :vid, $duracion, :fecha)");
 		if(!$ps->execute([
 			':cur'=>$curso,
 			':vid'=>$video,
-			':tit' => $titulo
+			':tit' => $titulo,
+			':fecha' => $fecha
 		])){
 			http_response_code(500);
 			echo json_encode(['error'=>'Ocurrió un error en la base de datos', 'sqlstate'=>$ps->errorInfo()]);
